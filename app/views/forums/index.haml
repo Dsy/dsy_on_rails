@@ -1,0 +1,3 @@
+#content
+  -@forums.each do |forum|
+    = render :partial => "forum_data", :collection => @forums, :as => :forum

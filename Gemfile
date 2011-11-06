@@ -34,10 +34,17 @@ group :test do
   gem 'selenium-webdriver'
   gem 'spork'
   gem 'spork-testunit'
+  gem 'rspec'
 end
 
 gem 'haml'
+gem 'haml-rails'
 gem 'pry'
 gem 'capistrano'
-gem 'datamapper'
+gem 'data_mapper'
+gem 'dm-mysql-adapter'
+gem 'dm-rails'
+gem 'dm-pager'
 gem 'devise'
+gem 'therubyracer'
+gem 'interactive_editor'
