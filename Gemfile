@@ -1,11 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+# disabled globally
+#gem 'rails'
+# we want rails without activerecord
+gem 'actionmailer'
+gem 'actionpack'
+gem 'activeresource'
+gem 'activesupport'
+gem 'bundler'
+gem 'railties'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -48,3 +54,4 @@ gem 'dm-pager'
 gem 'devise'
 gem 'therubyracer'
 gem 'interactive_editor'
+gem 'tzinfo'
