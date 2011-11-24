@@ -1,3 +1,89 @@
 // Place all the styles related to the forums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { background-color: #DFE7E2; }
+
+br.clear { clear: both; }
+
+#container {
+  border: 1px solid #5C9E65;
+  margin: 30px;
+  background-color: #FFFFFF;
+}
+
+#network, #footer {
+  font: 0.7em Verdana;
+  color: #FFFFFF;
+  background-color: #5C9E65;
+}
+
+#network {
+  position: relative;
+  top: -14px;
+  li {
+    display: inline;
+    a { color: #FFFFFF; }
+  }
+  ul {
+    padding: 2px;
+    position: relative;
+    left: 4px;
+  }
+  li:first-child { font-weight: bold; }
+  li:first-child:after { content: " >"; }
+  a { text-decoration: none; }
+  a:hover { color: #0C4E15; }
+}
+
+#header {
+  h1 {
+    float: left;
+    position: relative;
+    top: 2px;
+    left: 5px;
+    height: 108px;
+    width: 293px;
+    background: #FFF url('http://www.dsy.it/images/logo.gif') no-repeat;
+    span { display: none; }
+  }
+}
+
+#menu {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+  ul, li { display: inline; }
+  a {
+    padding: 2px 5px 2px 5px;
+    color: #0C4E15;
+    background-color: #F1F5F1;
+    text-decoration:none;
+    font: bold 0.8em Verdana;
+  }
+}
+
+#banner {
+  position: relative;
+  top: 20px;
+  text-align: center;
+  a {
+    position: relative;
+    top: -6px;
+    font: 0.6em Verdana;
+    color: #0C4E15;
+  }
+}
+
+#options {
+  text-align: center;
+  font: 0.6em Verdana;
+  margin-bottom: 8px;
+  a { color: #0C4E15; }
+}
+
+#footer {
+  padding: 2px;
+  text-align: center;
+}

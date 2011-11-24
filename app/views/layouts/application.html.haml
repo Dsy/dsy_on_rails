@@ -1,0 +1,116 @@
+!!! 5
+%html
+  %head
+    %title .dsy:it.
+    = stylesheet_link_tag    :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}
+    -# no cache headers
+    -#%meta{'http-equiv' => 'Pragma',        :content => 'no-cache'}
+    -#%meta{'http-equiv' => 'no-cache',      :content =>''}
+    -#%meta{'http-equiv' => 'Expires',       :content => '-1'}
+    -#%meta{'http-equiv' => 'Cache-Control', :content => 'no-cache'}
+    -# end no cache headers
+    %meta{:name => 'author',        :content => 'Walter Mottinelli, Mino Bernardi, Francisco Peralta and .dsy:it. staff'}
+    %meta{:name => 'keywords',      :content => 'dsy,DSY,dsi,dico,unimi,dsy.it,diessipsilon,diesseuai,diessei,appunti,materiale,progetto,progetti,Howto,Learning,Teaching,web,filez,file,download,downloadz,forum,studenti,studentesco,studente,universita,university,appunto,slide,ppt,materiale,scaricare,scaricabile,info,studenti,on-line,rete,net,networking,onsite,help,italia,italy,milano,mi,laurea,laureati,job,lavoro,employment,matrix,download,soluzioni,solution,informatica,comunicazione,digitale,science,information,communication,digital,laurea,informazione'}
+    %meta{:name => 'description',   :content => "Una risorsa per gli studenti di Informatica dell'Universita' Statale di Milano"}
+    %meta{:name => 'generator',     :content => 'vi, tidy'}
+    %meta{:name => 'resource-type', :content => 'document'}
+    %meta{:name => 'distribution',  :content => 'global'}
+    %meta{:name => 'owner',         :content => '.dsy:it. staff'}
+    %meta{:name => 'robots',        :content => 'all'}
+    %meta{:name => 'robots',        :content => 'index,follow'}
+    %meta{'http-equiv' => 'equivcontent-language', :content => 'it'}
+    %meta{:name => 'geo.position',  :content => '45.4533;9.2125'}
+    %meta{:name => 'geo.region',    :content => 'IT-MI'}
+    %meta{:name => 'geo.placename', :content => 'Milan'}
+    %meta{:name => 'ICBM',          :content => '45.4533, 9.2125'}
+    %meta{:name => 'DC.title',      :content => 'Dsy.it - Milan university student site'}
+    -#%link{:rel  => 'shortcut icon', :href    => 'favicon.ico'}
+    = favicon_link_tag
+    -#%link{rel="stylesheet" type="text/css" href="dsy.dsycss" />
+  %body
+    #container
+      #network
+        %ul
+          %li Dsy network
+          %li
+            %a{:href => 'http://www.dsy.it'} www
+            |
+          %li>
+            %a{:href => 'http://forum.dsy.it/'} forum
+            |
+          %li
+            %a{:href => 'http://chat.dsy.it/'} chat
+            |
+          %li
+            %a{:href => 'http://my.dsy.it/'} my
+            |
+          %li
+            %a{:href => 'http://www.dsy.it/forum/forumdisplay.php?forumid=8'} didattica
+            |
+          %li
+            %a{:href => 'http://www.dsy.it/wiki/index.php/BuroCrazy_HOWTOs_and_FAQ'} howto
+            |
+          %li
+            %a{:href => 'http://wiki.dsy.it/'} wiki
+            |
+          %li
+            %a{:href => 'http://elgoog.dsy.it/'} el goog
+            |
+          %li
+            %a{:href => 'http://plan.dsy.it/'} plan
+            |
+          %li
+            %a{:href => 'http://stats.dsy.it/'} stats
+            |
+          %li
+            %a{:href => 'http://www.dsy.it/forum/journal.php'} blog
+            |
+          %li
+            %a{:href => 'http://www.dsy.it/dona.php'} dona
+            |
+          %li
+            %a{:href => 'http://rappresentanti.dsy.it/'} rappresentanti
+      #header
+        %h1
+          %span dsy.it - il miglior plugin per il dsi
+        #menu
+          %ul
+            %li
+              %a{:href => 'http://www.dsy.it/forum/register.php?action=signup'} Register
+            %li
+              %a{:href => 'http://www.dsy.it/forum/calendar.php'} Calendar
+            %li
+              %a{:href => 'http://www.dsy.it/forum/memberlist.php'} Members
+            %li
+              %a{:href => 'http://www.dsy.it/forum/misc.php?action=faq'} Faq
+            %li
+              %a{:href => 'http://www.dsy.it/forum/search.php'} Search
+            %li
+              %a{:href => 'http://www.dsy.it/forum/member.php?action=logout'} Logout
+      %br.clear
+
+      = yield
+
+      #options
+        Mantained by
+        %a{:href => 'http://www.dsy.it/forum/showgroups.php'} dsy crew
+        (
+        %a{:href => 'mailto:staff@dsy.it'} email
+        ) |
+        %a{:href => '#'} Collabora con noi
+        |
+        %a{:href => '#'} Segnalaci un bug
+        |
+        %a{:href => 'http://www.dsy.it/archive/'} Archive
+        |
+        %a{:href => 'http://www.dsy.it/forum/showthread.php?threadid=15601'} Regolamento
+        |
+        %a{:href => 'http://www.dsy.it/forum/credits.php'} Thanks
+        |
+        %a{:href => 'http://www.dsy.it/forum/xmlnews.php'} Syndacate
+      #footer
+        footer :P
+      -#<script type="text/javascript" src="http://www.dsy.it/js/awstats_misc_tracker.js"></script>

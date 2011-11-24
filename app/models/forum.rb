@@ -16,4 +16,11 @@ class Forum
   property :open,        Boolean,   :field => 'allowposting'
   property :parent_id,   Integer,   :field => 'parentid'
 
+#  def all
+    #scope all.
+  #end
+  
+  def self.active
+    all(:active => true)
+  end
 end
