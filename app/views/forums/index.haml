@@ -1,3 +1,9 @@
 #content
-  = render :partial => "forum_data", :collection => @forums, :as => :forum
-  != @pager
+  %ul
+    - @forums.keys.each do |top_level_forum|
+      %li= link_to_if top_level_forum.open, top_level_forum.name, top_level_forum
+      %ul
+        - @forums[top_level_forum].each do |forum|
+          %li= link_to forum.name, forum
+  -#= render :partial => "forum_data", :collection => @forums.keys, :as => :forum
+  -#!= @pager
