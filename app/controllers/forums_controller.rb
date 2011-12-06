@@ -13,10 +13,11 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.get params[:id]
-    @children_forums = @forum.children.active.by_position
     if @forum.nil?
       redirect_to :action => :index, :alert => 'The forum you specified was not found!'
     end
+    @children_forums = @forum.children.active.by_position
+    @threads = @forum.topics.by_dateline
 
     #respond_to do |format|
       #format.html

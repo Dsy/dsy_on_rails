@@ -2,33 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body { background-color: #DFE7E2; }
-
-br.clear { clear: both; }
-
-#container {
-  border: 1px solid #5C9E65;
-  margin: 30px;
-  background-color: #FFFFFF;
+body {
+  background-color: #DFE7E2;
+  padding: 10px 40px;
+  font-family: verdana, arial, helvetica;
 }
 
-#network, #footer {
-  font: 0.7em Verdana;
+header#page_header {
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: #5C9E65;
+  background-color: #FFFFFF;
+  h1 {
+    float: left;
+    height: 108px;
+    width: 293px;
+    margin: 0px 10px 10px 10px;
+    background: #FFF url('http://www.dsy.it/images/logo.gif') no-repeat;
+    span { display: none; }
+  }
+  section#header_content { overflow: hidden; }
+}
+
+nav#site_nav {
+  font: 0.6em Verdana;
   color: #FFFFFF;
   background-color: #5C9E65;
-}
-
-#network {
-  position: relative;
-  top: -14px;
   li {
     display: inline;
     a { color: #FFFFFF; }
   }
   ul {
-    padding: 2px;
-    position: relative;
-    left: 4px;
+    padding: 2px 4px;
   }
   li:first-child { font-weight: bold; }
   li:first-child:after { content: " >"; }
@@ -36,54 +41,86 @@ br.clear { clear: both; }
   a:hover { color: #0C4E15; }
 }
 
-#header {
-  h1 {
-    float: left;
-    position: relative;
-    top: 2px;
-    left: 5px;
-    height: 108px;
-    width: 293px;
-    background: #FFF url('http://www.dsy.it/images/logo.gif') no-repeat;
-    span { display: none; }
-  }
-}
-
-#menu {
-  position: relative;
-  top: 5px;
-  right: 5px;
-  text-align: right;
+nav#menu {
+  float: right;
+  padding-right: 5px;
   ul, li { display: inline; }
   a {
-    padding: 2px 5px 2px 5px;
+    padding: 1px;
     color: #0C4E15;
     background-color: #F1F5F1;
-    text-decoration:none;
+    text-decoration: none;
     font: bold 0.8em Verdana;
   }
 }
 
-#banner {
-  position: relative;
-  top: 20px;
-  text-align: center;
-  a {
-    position: relative;
-    top: -6px;
-    font: 0.6em Verdana;
-    color: #0C4E15;
-  }
-}
+/*
+ *#banner {
+ *  position: relative;
+ *  top: 20px;
+ *  text-align: center;
+ *  a {
+ *    position: relative;
+ *    top: -6px;
+ *    font: 0.6em Verdana;
+ *    color: #0C4E15;
+ *  }
+ *}
+ */
 
-#options {
+nav#footer_nav {
   text-align: center;
   font: 0.6em Verdana;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   a { color: #0C4E15; }
 }
 
-#footer {
-  padding: 2px;
-  text-align: center;
+section#main_content {
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: #5C9E65;
+  background-color: #FFFFFF;
+  padding: 10px;
+  font-size: 13px;
+  ul, li {
+    list-style-type: none;
+    padding: 5px 0px;
+    margin: 1px;
+    a {
+      font-family: verdana, arial, helvetica;
+      font-weight: 700;
+    }
+  }
+  li.top_level_forum_data {
+    background-color: #D4DED8;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    a {
+      color: #639374;
+    }
+  }
+  li.forum_data {
+    background-color: #F1F5F1;
+    padding-left: 10px;
+    a {
+      color: #0c4e18;
+    }
+    div.forum_description {
+      font-size: 10px;
+    }
+  }
 }
+
+footer#site_footer {
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: #5C9E65;
+  background-color: #FFFFFF;
+  text-align: center;
+  section {
+    font: 0.7em Verdana;
+    color: #FFFFFF;
+    background-color: #5C9E65;
+  }
+}
+

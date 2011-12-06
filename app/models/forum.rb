@@ -1,5 +1,4 @@
 class Forum
-
   include DataMapper::Resource
 
   storage_names[:default] = 'forum'
@@ -16,6 +15,9 @@ class Forum
   property :open,        Boolean,   :field => 'allowposting'
   property :parent_id,   Integer,   :field => 'parentid'
   property :parent_list, String,    :field => 'parentlist'
+
+  has n, :topics
+  #, :child_key => [ :forumid ]
 
   def self.active
     all(:active => true)

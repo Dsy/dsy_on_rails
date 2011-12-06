@@ -31,8 +31,8 @@
     = favicon_link_tag
     -#%link{rel="stylesheet" type="text/css" href="dsy.dsycss" />
   %body
-    #container
-      #network
+    %header#page_header
+      %nav#site_nav
         %ul
           %li Dsy network
           %li
@@ -73,10 +73,10 @@
             |
           %li
             %a{:href => 'http://rappresentanti.dsy.it/'} rappresentanti
-      #header
+      %section#header_content
         %h1
           %span dsy.it - il miglior plugin per il dsi
-        #menu
+        %nav#menu
           %ul
             %li
               %a{:href => 'http://www.dsy.it/forum/register.php?action=signup'} Register
@@ -90,11 +90,11 @@
               %a{:href => 'http://www.dsy.it/forum/search.php'} Search
             %li
               %a{:href => 'http://www.dsy.it/forum/member.php?action=logout'} Logout
-      %br.clear
-
+    %section#main_content
       = yield
 
-      #options
+    %footer#site_footer
+      %nav#footer_nav
         Mantained by
         %a{:href => 'http://www.dsy.it/forum/showgroups.php'} dsy crew
         (
@@ -111,6 +111,5 @@
         %a{:href => 'http://www.dsy.it/forum/credits.php'} Thanks
         |
         %a{:href => 'http://www.dsy.it/forum/xmlnews.php'} Syndacate
-      #footer
-        footer :P
+      %section footer :P
       -#<script type="text/javascript" src="http://www.dsy.it/js/awstats_misc_tracker.js"></script>

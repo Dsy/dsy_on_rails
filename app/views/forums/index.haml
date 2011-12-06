@@ -1,10 +1,11 @@
-#content
-  %ul
-    - @forums.keys.each do |top_level_forum|
-      %li
-        = link_to_if top_level_forum.open, top_level_forum.name, top_level_forum
-        %ul
-          - @forums[top_level_forum].each do |forum|
-            %li= link_to forum.name, forum
+%ul
+  - @forums.keys.each do |top_level_forum|
+    %li.top_level_forum_data
+      = link_to top_level_forum.name, top_level_forum
+      %ul
+        - @forums[top_level_forum].each do |forum|
+          %li.forum_data
+            = link_to forum.name, forum
+            .forum_description!= forum.description
   -#= render :partial => "forum_data", :collection => @forums.keys, :as => :forum
   -#!= @pager
