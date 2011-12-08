@@ -4,13 +4,16 @@
   %li.sticky=      @topic.sticky
   %li.replies_nr=  @topic.replies_nr
   %li.last_post=   @topic.last_post
-  %li.poster=      @topic.poster
+  %li.user_idr=    @topic.user_id
   %li.views_nr=    @topic.views_nr
   %li.open=        @topic.open
   %li.dateline=    @topic.dateline
 %ul
   - @posts.each do |post|
-    %li= link_to post.title, post
+    %li
+      %article{:id => "post_#{post.id}_data"}
+        = link_to post.title, post
+        .post= post.text
 
 
 = link_to :back

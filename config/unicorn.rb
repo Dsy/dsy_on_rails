@@ -6,9 +6,9 @@
 # See also http://unicorn.bogomips.org/examples/unicorn.conf.rb for
 # a more verbose configuration using more features.
 #
-app_path = "/home/wmotti/dev/dsy_on_rails"
+app_path = "/home/wmotti/Code/dsy_on_rails"
 
-listen 2007 # by default Unicorn listens on port 8080
+listen 80 # by default Unicorn listens on port 8080
 worker_processes 2 # this should be >= nr_cpus
 pid "#{app_path}/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/log/unicorn.log"

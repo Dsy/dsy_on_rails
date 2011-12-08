@@ -1,0 +1,24 @@
+%ul.user_data{:id => "user_#{@user.id}_data"}
+  %li.id=            @user.id
+  %li.group_id=      @user.group_id
+  %li.username=      @user.username
+  %li.password=      @user.password
+  %li.email=         @user.email
+  %li.homepage=      @user.homepage
+  %li.icq=           @user.icq
+  %li.aim=           @user.aim
+  %li.yahoo=         @user.yahoo
+  %li.signature=     @user.signature
+  %li.user_title=    @user.user_title
+  %li.custom_title=  @user.custom_title
+  %li.join_date=     @user.join_date
+  %li.last_visit=    @user.last_visit
+  %li.last_activity= @user.last_activity
+  %li.last_post=     @user.last_post
+  %li.posts_nr=      @user.posts_nr
+  %li.birthday=      @user.birthday
+  %li.gender=        @user.gender
+  %li.time_online=   @user.time_online
+
+= link_to :back
+= url_for :back

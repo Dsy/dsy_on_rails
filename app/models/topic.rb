@@ -9,12 +9,13 @@ class Topic
   property :sticky,      Boolean
   property :replies_nr,  Integer,   :field => 'replycount'
   property :last_post,   EpochTime, :field => 'lastpost'
-  property :poster,      Integer,   :field => 'postuserid'
+  property :user_id,      Integer,   :field => 'postuserid'
   property :views_nr,    Integer,   :field => 'views'
   property :open,        Boolean
   property :dateline,    EpochTime, :field => 'dateline'
   property :forum_id,    Integer,   :field => 'forumid'
 
+  belongs_to :user
   belongs_to :forum
   has n, :posts
 

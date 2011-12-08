@@ -5,7 +5,7 @@ class Post
 
   property :id,          Serial,    :field => 'postid'
   #property :poster,      String,    :field => 'username'
-  property :poster_id,   Integer,    :field => 'userid'
+  property :user_id,   Integer,    :field => 'userid'
   property :title,       String
   property :visible,    Boolean
 #  property :sticky,      Boolean
@@ -17,6 +17,7 @@ class Post
   property :text,        Text,      :field => 'pagetext'
   property :topic_id,    Integer,   :field => 'threadid'
 
+  belongs_to :user
   belongs_to :topic
 
   #def self.active
@@ -24,7 +25,7 @@ class Post
   #end
 
   def self.by_dateline
-    all(:order => [:dateline.desc])
+    all(:order => [:dateline.asc])
   end
 
 #  def parent
