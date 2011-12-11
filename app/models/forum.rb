@@ -10,7 +10,7 @@ class Forum
   property :position,    Integer,   :field => 'displayorder'
   property :replies_nr,  Integer,   :field => 'replycount'
   property :last_post,   EpochTime, :field => 'lastpost'
-  property :last_poster, Integer,   :field => 'lastposter'
+  property :last_poster, String,    :field => 'lastposter'
   property :threads_nr,  Integer,   :field => 'threadcount'
   property :open,        Boolean,   :field => 'allowposting'
   property :parent_id,   Integer,   :field => 'parentid'
@@ -37,5 +37,13 @@ class Forum
 
   def self.top_level
     Forum.all(:parent_id => -1)
+  end
+
+  def last_post_date
+    last_post.to_date.to_s :long
+  end
+
+  def last_post_time
+    last_post.to_s :time
   end
 end

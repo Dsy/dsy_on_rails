@@ -39,16 +39,18 @@
             %a{:href => 'http://www.dsy.it'} www
             |
           %li>
-            %a{:href => 'http://forum.dsy.it/'} forum
+            -#%a{:href => 'http://forum.dsy.it/'} forum
+            =link_to 'forum', forums_path
             |
-          %li
+          -#%li
             %a{:href => 'http://chat.dsy.it/'} chat
             |
           %li
             %a{:href => 'http://my.dsy.it/'} my
             |
           %li
-            %a{:href => 'http://www.dsy.it/forum/forumdisplay.php?forumid=8'} didattica
+            -#%a{:href => 'http://www.dsy.it/forum/forumdisplay.php?forumid=8'} didattica
+            =link_to 'didattica', {:controller => 'forums', :action => 'show', :id => 8}
             |
           %li
             %a{:href => 'http://www.dsy.it/wiki/index.php/BuroCrazy_HOWTOs_and_FAQ'} howto
@@ -65,13 +67,13 @@
           %li
             %a{:href => 'http://stats.dsy.it/'} stats
             |
-          %li
+          -#%li
             %a{:href => 'http://www.dsy.it/forum/journal.php'} blog
             |
           %li
             %a{:href => 'http://www.dsy.it/dona.php'} dona
-            |
-          %li
+            -#|
+          -#%li
             %a{:href => 'http://rappresentanti.dsy.it/'} rappresentanti
       %section#header_content
         %h1
@@ -83,7 +85,8 @@
             %li
               %a{:href => 'http://www.dsy.it/forum/calendar.php'} Calendar
             %li
-              %a{:href => 'http://www.dsy.it/forum/memberlist.php'} Members
+              -#%a{:href => 'http://www.dsy.it/forum/memberlist.php'} Members
+              =link_to 'Members', users_path
             %li
               %a{:href => 'http://www.dsy.it/forum/misc.php?action=faq'} Faq
             %li
@@ -92,7 +95,6 @@
               %a{:href => 'http://www.dsy.it/forum/member.php?action=logout'} Logout
     %section#main_content
       = yield
-
     %footer#site_footer
       %nav#footer_nav
         Mantained by

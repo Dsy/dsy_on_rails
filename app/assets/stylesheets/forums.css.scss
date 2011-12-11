@@ -102,11 +102,28 @@ section#main_content {
   li.forum_data {
     background-color: #F1F5F1;
     padding-left: 10px;
+    overflow: hidden;
     a {
       color: #0c4e18;
     }
-    div.forum_description {
+    div {
+      float: left;
       font-size: 10px;
+    }
+    div.forum_main_data {
+      width: 60%;
+    }
+    div.forum_name {
+      font-size: 13px;
+    }
+    div.forum_description {
+      float: none;
+    }
+    div.forum_name, div.forum_last_post_date, div.forum_last_post_time, div.forum_last_poster {
+      float: none;
+    }
+    div.forum_threads_nr, div.forum_replies_nr, div.forum_last_post_data {
+      padding: 5px;
     }
   }
 }
