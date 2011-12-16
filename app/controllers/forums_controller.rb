@@ -1,7 +1,7 @@
 class ForumsController < ApplicationController
 
   def index
-    #params[:page] |= 1
+    #params[:page] ||= 1
     #@forums = Forum.active.top_level.by_position.page params[:page], :per_page => 10
     top_level_forums = Forum.active.top_level.by_position
     @forums = {}
