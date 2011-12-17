@@ -1,3 +1,4 @@
+-##threads
 %ul.forum_data{:id => "forum_#{@forum.id}_data"}
   %li.id=          @forum.id
   %li.name=        @forum.name
@@ -16,6 +17,7 @@
   - @threads.each do |thread|
     %li= link_to thread.title, thread
 
-
+-##paginator= paginate @threads, :remote => true
+#paginator= paginate @threads
 = link_to :back
 = url_for :back

@@ -17,7 +17,6 @@ class Forum
   property :parent_list, String,    :field => 'parentlist'
 
   has n, :topics
-  #, :child_key => [ :forumid ]
 
   def self.active
     all(:active => true)

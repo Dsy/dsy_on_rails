@@ -4,7 +4,7 @@
   %li.sticky=      @topic.sticky
   %li.replies_nr=  @topic.replies_nr
   %li.last_post=   @topic.last_post
-  %li.user_idr=    @topic.user_id
+  %li.user_idr=    @topic.last_poster
   %li.views_nr=    @topic.views_nr
   %li.open=        @topic.open
   %li.dateline=    @topic.dateline
@@ -14,7 +14,6 @@
       %article{:id => "post_#{post.id}_data"}
         = link_to post.title, post
         .post= post.text
-
 
 = link_to :back
 = url_for :back

@@ -20,12 +20,12 @@ class User
   property :last_activity, EpochTime, :field => 'lastactivity'
   property :last_post,     EpochTime, :field => 'joindate'
   property :posts_nr,      Integer,   :field => 'posts'
-  property :birthday,      DateTime
+  property :birthday,      Date
   property :gender,        String
   property :time_online,   Integer,   :field => 'timeonline'
 
-  has n, :topics
-  has n, :posts
+  has n, :topics, 'Topic', :child_key => [ :last_poster ]
+  has n, :posts , 'Post'
 
   #def self.active
     #all(:active => true)
