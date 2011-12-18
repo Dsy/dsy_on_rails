@@ -20,7 +20,7 @@ class User
   property :last_activity, EpochTime, :field => 'lastactivity'
   property :last_post,     EpochTime, :field => 'joindate'
   property :posts_nr,      Integer,   :field => 'posts'
-  property :birthday,      Date
+ #property :birthday,      Date
   property :gender,        String
   property :time_online,   Integer,   :field => 'timeonline'
 

@@ -18,6 +18,9 @@ class Forum
 
   has n, :topics
 
+  has n, :forums, 'Forum', :child_key => [ :parent_id ]
+  belongs_to :forum, 'Forum', :child_key => [ :parent_id ]
+
   def self.active
     all(:active => true)
   end
@@ -44,5 +47,19 @@ class Forum
 
   def last_post_time
     last_post.to_s :time
+  end
+
+  def last_poster_user
+    User.first :username => self.last_poster
+  end
+
+  def parent_chain
+    parent_chain = []
+    current = self.parent
+    begin
+      parent_chain << current
+      current = current.parent
+    end while current
+    parent_chain
   end
 end

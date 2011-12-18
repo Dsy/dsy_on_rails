@@ -13,6 +13,8 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.get params[:id]
+    @page_title = '.dsy:it. - ' + @forum.name
+    @forums_breadcrumb = @forum.parent_chain.reverse
     if @forum.nil?
       redirect_to :action => :index, :alert => 'The forum you specified was not found!'
     end

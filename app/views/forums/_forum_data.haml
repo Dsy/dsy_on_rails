@@ -1,12 +1,10 @@
-%ul.forum_data{:id => "forum_#{forum.id}_data"}
-  %li.id= forum.id
-  %li.name= forum.name
-  %li.description= forum.description
-  %li.active= forum.active
-  %li.position= forum.position
-  %li.replies_nr= forum.replies_nr
-  %li.last_post= forum.last_post
-  %li.last_poster= forum.last_poster
-  %li.threads_nr= forum.threads_nr
-  %li.open= forum.open
-  %li.parent_id= forum.parent_id
+%li.forum_data
+  .forum_main_data
+    .forum_name= link_to forum.name, forum
+    .forum_description!= forum.description
+  .forum_threads_nr= forum.threads_nr
+  .forum_replies_nr= forum.replies_nr
+  .forum_last_post_data
+    .forum_last_post_date= "on #{forum.last_post}"
+    .forum_last_poster= link_to(forum.last_poster_user.username, forum.last_poster_user) if forum.last_poster_user
+    -#.forum_last_poster= link_to forum.last_poster, forum.last_poster_user

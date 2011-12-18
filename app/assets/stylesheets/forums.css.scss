@@ -4,7 +4,7 @@
 
 body {
   background-color: #DFE7E2;
-  padding: 10px 40px;
+  padding: 10px 50px;
   font-family: verdana, arial, helvetica;
 }
 
@@ -54,6 +54,15 @@ nav#menu {
   }
 }
 
+ul#breadcrumb, ul#breadcrumb li {
+    display: inline;
+    a {
+      font-family: verdana, arial, helvetica;
+      font-weight: 700;
+      color: #0c4e18;
+    }
+
+}
 /*
  *#banner {
  *  position: relative;
@@ -80,7 +89,7 @@ section#main_content {
   border-style: solid;
   border-color: #5C9E65;
   background-color: #FFFFFF;
-  padding: 10px;
+  padding: 10px 60px;
   font-size: 13px;
   ul, li {
     list-style-type: none;
@@ -124,6 +133,8 @@ section#main_content {
     }
     div.forum_threads_nr, div.forum_replies_nr, div.forum_last_post_data {
       padding: 5px;
+      float: right;
+      width: 10em;
     }
   }
 }

@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title .dsy:it.
+    %title= @page_title
     = stylesheet_link_tag    :application
     = javascript_include_tag :application
     = csrf_meta_tags
@@ -42,9 +42,6 @@
             -#%a{:href => 'http://forum.dsy.it/'} forum
             =link_to 'forum', forums_path
             |
-          -#%li
-            %a{:href => 'http://chat.dsy.it/'} chat
-            |
           %li
             %a{:href => 'http://my.dsy.it/'} my
             |
@@ -62,19 +59,10 @@
             %a{:href => 'http://elgoog.dsy.it/'} el goog
             |
           %li
-            %a{:href => 'http://plan.dsy.it/'} plan
-            |
-          %li
             %a{:href => 'http://stats.dsy.it/'} stats
-            |
-          -#%li
-            %a{:href => 'http://www.dsy.it/forum/journal.php'} blog
             |
           %li
             %a{:href => 'http://www.dsy.it/dona.php'} dona
-            -#|
-          -#%li
-            %a{:href => 'http://rappresentanti.dsy.it/'} rappresentanti
       %section#header_content
         %h1
           %span dsy.it - il miglior plugin per il dsi
