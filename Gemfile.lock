@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/amatsuda/kaminari.git
-  revision: 0585be11e44b554f789d2558fe5b77bbbd3be4da
+  revision: 56df995be857985233ba5aa5194ffbd8c16880ad
   specs:
     kaminari (0.12.4)
       actionpack (>= 3.0.0)
@@ -248,7 +248,7 @@ GEM
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.5)
-    sass (3.1.11)
+    sass (3.1.12)
     sass-rails (3.1.5)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)

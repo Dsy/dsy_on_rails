@@ -9,6 +9,7 @@ class ForumsController < ApplicationController
     top_level_forums.each do |f|
       @forums[f] = f.children.active.by_position
     end
+    respond_with @forums
   end
 
   def show
