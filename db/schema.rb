@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106162514) do
+ActiveRecord::Schema.define(:version => 20120106162905) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -145,80 +145,6 @@ ActiveRecord::Schema.define(:version => 20120106162514) do
   end
 
   add_index "moderator", ["userid", "forumid"], :name => "userid"
-
-  create_table "nm_anno", :id => false, :force => true do |t|
-    t.integer "id_laurea",       :default => 0, :null => false
-    t.integer "anno",            :default => 0, :null => false
-    t.integer "id_insegnamento", :default => 0, :null => false
-  end
-
-  create_table "nm_argomenti", :id => false, :force => true do |t|
-    t.integer "id",                       :default => 0,  :null => false
-    t.string  "nome",      :limit => 100, :default => "", :null => false
-    t.integer "id_modulo",                :default => 0,  :null => false
-  end
-
-  create_table "nm_insegnamenti", :force => true do |t|
-    t.string "nome", :limit => 100, :default => "", :null => false
-    t.string "prof", :limit => 100, :default => "", :null => false
-  end
-
-  create_table "nm_interessi", :id => false, :force => true do |t|
-    t.integer "u_id",                  :default => 0, :null => false
-    t.integer "i_id",                  :default => 0, :null => false
-    t.integer "soglia",   :limit => 1, :default => 3, :null => false
-    t.integer "priorita", :limit => 1, :default => 3, :null => false
-    t.integer "mailme",   :limit => 1, :default => 1, :null => false
-  end
-
-  create_table "nm_lauree", :force => true do |t|
-    t.string  "nome", :limit => 80, :default => "", :null => false
-    t.integer "anni",               :default => 0,  :null => false
-  end
-
-  create_table "nm_log", :force => true do |t|
-    t.timestamp "timestamp",                             :null => false
-    t.integer   "priorita",  :limit => 1, :default => 3, :null => false
-    t.text      "note",                                  :null => false
-  end
-
-  create_table "nm_moduli", :primary_key => "i_id", :force => true do |t|
-    t.string "nome", :limit => 50, :default => "", :null => false
-    t.text   "p01"
-    t.text   "p02"
-    t.text   "p03"
-    t.text   "p04"
-    t.text   "p05"
-    t.text   "p06"
-    t.text   "p07"
-    t.text   "p08"
-  end
-
-  create_table "nm_risultati", :force => true do |t|
-    t.integer   "i_id",                   :default => 0, :null => false
-    t.timestamp "timestamp",                             :null => false
-    t.integer   "priorita",  :limit => 1, :default => 3, :null => false
-    t.text      "p01"
-    t.text      "p02"
-    t.text      "p03"
-    t.text      "p04"
-    t.text      "p05"
-    t.text      "p06"
-    t.text      "p07"
-    t.text      "p08"
-  end
-
-  create_table "nm_utenti", :force => true do |t|
-    t.integer "vb_id",                 :default => 0, :null => false
-    t.integer "public",   :limit => 1, :default => 1
-    t.integer "mailme",   :limit => 1
-    t.integer "h",        :limit => 1
-    t.integer "w",        :limit => 1
-    t.integer "m",        :limit => 1
-    t.integer "htmlmail", :limit => 1
-  end
-
-  add_index "nm_utenti", ["vb_id"], :name => "vb_id", :unique => true
 
   create_table "people", :force => true do |t|
     t.string    "name",       :limit => 50, :default => "", :null => false
