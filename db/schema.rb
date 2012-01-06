@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106165616) do
+ActiveRecord::Schema.define(:version => 20120106165808) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -201,18 +201,6 @@ ActiveRecord::Schema.define(:version => 20120106165616) do
     t.integer "size",         :limit => 2,   :default => 25,  :null => false
     t.integer "displayorder", :limit => 2,   :default => 0,   :null => false
     t.integer "editable",     :limit => 2,   :default => 1,   :null => false
-  end
-
-  create_table "replacement", :primary_key => "replacementid", :force => true do |t|
-    t.integer "replacementsetid", :limit => 2, :default => 0, :null => false
-    t.text    "findword",                                     :null => false
-    t.text    "replaceword",                                  :null => false
-  end
-
-  add_index "replacement", ["replacementsetid"], :name => "replacementsetid"
-
-  create_table "replacementset", :primary_key => "replacementsetid", :force => true do |t|
-    t.string "title", :limit => 250, :default => "", :null => false
   end
 
   create_table "setting", :primary_key => "settingid", :force => true do |t|
