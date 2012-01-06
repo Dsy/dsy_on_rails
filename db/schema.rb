@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106165231) do
+ActiveRecord::Schema.define(:version => 20120106165616) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -258,18 +258,6 @@ ActiveRecord::Schema.define(:version => 20120106165231) do
   end
 
   add_index "subscribethread", ["threadid"], :name => "threadid"
-
-  create_table "template", :primary_key => "templateid", :force => true do |t|
-    t.integer "templatesetid", :limit => 2,        :default => 0,  :null => false
-    t.string  "title",         :limit => 100,      :default => "", :null => false
-    t.text    "template",      :limit => 16777215,                 :null => false
-  end
-
-  add_index "template", ["title", "templatesetid"], :name => "title"
-
-  create_table "templateset", :primary_key => "templatesetid", :force => true do |t|
-    t.string "title", :limit => 250, :default => "", :null => false
-  end
 
   create_table "thread", :primary_key => "threadid", :force => true do |t|
     t.string  "title",        :limit => 100, :default => "", :null => false
