@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106170314) do
+ActiveRecord::Schema.define(:version => 20120106170442) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -171,26 +171,6 @@ ActiveRecord::Schema.define(:version => 20120106170314) do
   add_index "post", ["ipaddress"], :name => "ipaddress"
   add_index "post", ["threadid", "userid"], :name => "threadid"
   add_index "post", ["userid"], :name => "userid"
-
-  create_table "privatemessage", :primary_key => "privatemessageid", :force => true do |t|
-    t.integer "folderid",           :limit => 2,        :default => 0,  :null => false
-    t.integer "userid",                                 :default => 0,  :null => false
-    t.integer "touserid",                               :default => 0,  :null => false
-    t.integer "fromuserid",                             :default => 0,  :null => false
-    t.string  "title",              :limit => 250,      :default => "", :null => false
-    t.text    "message",            :limit => 16777215,                 :null => false
-    t.integer "dateline",                               :default => 0,  :null => false
-    t.integer "showsignature",      :limit => 2,        :default => 0,  :null => false
-    t.integer "iconid",             :limit => 2,        :default => 0,  :null => false
-    t.integer "messageread",        :limit => 2,        :default => 0,  :null => false
-    t.integer "readtime",                               :default => 0,  :null => false
-    t.integer "receipt",            :limit => 2,        :default => 0,  :null => false
-    t.integer "deleteprompt",       :limit => 2,        :default => 0,  :null => false
-    t.integer "multiplerecipients", :limit => 2,        :default => 0,  :null => false
-  end
-
-  add_index "privatemessage", ["fromuserid"], :name => "fromuserid"
-  add_index "privatemessage", ["userid"], :name => "userid"
 
   create_table "profilefield", :primary_key => "profilefieldid", :force => true do |t|
     t.string  "title",        :limit => 50,  :default => "",  :null => false
