@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106173150) do
+ActiveRecord::Schema.define(:version => 20120106175127) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -200,15 +200,6 @@ ActiveRecord::Schema.define(:version => 20120106173150) do
   add_index "user", ["referrerid"], :name => "referrerid"
   add_index "user", ["usergroupid"], :name => "usergroupid"
   add_index "user", ["username"], :name => "username"
-
-  create_table "useractivation", :primary_key => "useractivationid", :force => true do |t|
-    t.integer "userid",                     :default => 0,  :null => false
-    t.integer "dateline",                   :default => 0,  :null => false
-    t.string  "activationid", :limit => 20, :default => "", :null => false
-    t.integer "type",         :limit => 2,  :default => 0,  :null => false
-  end
-
-  add_index "useractivation", ["userid", "type"], :name => "userid"
 
   create_table "userfield", :primary_key => "userid", :force => true do |t|
     t.string "field2",         :limit => 250, :default => "", :null => false
