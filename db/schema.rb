@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106184637) do
+ActiveRecord::Schema.define(:version => 20120106190249) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120106184637) do
 
   add_index "attachments", ["counter"], :name => "counter"
 
-  create_table "avatar", :primary_key => "user_id", :force => true do |t|
+  create_table "avatars", :primary_key => "user_id", :force => true do |t|
     t.text     "data",       :limit => 16777215,                 :null => false
     t.integer  "created_at",                     :default => 0,  :null => false
     t.string   "filename",   :limit => 100,      :default => "", :null => false
