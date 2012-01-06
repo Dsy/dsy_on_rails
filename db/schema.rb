@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106164645) do
+ActiveRecord::Schema.define(:version => 20120106164914) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -850,12 +850,6 @@ ActiveRecord::Schema.define(:version => 20120106164645) do
   end
 
   add_index "usergroup", ["showgroup"], :name => "showgroup"
-
-  create_table "usernotepad", :id => false, :force => true do |t|
-    t.integer "userid",                          :default => 0, :null => false
-    t.text    "notes",       :limit => 16777215,                :null => false
-    t.integer "lastupdated",                     :default => 0, :null => false
-  end
 
   create_table "usertitle", :primary_key => "usertitleid", :force => true do |t|
     t.integer "minposts", :limit => 2,   :default => 0,  :null => false
