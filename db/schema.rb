@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106164914) do
+ActiveRecord::Schema.define(:version => 20120106165231) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -307,12 +307,6 @@ ActiveRecord::Schema.define(:version => 20120106164914) do
   end
 
   add_index "threadrate", ["threadid"], :name => "threadid"
-
-  create_table "timetick", :force => true do |t|
-    t.string "action",   :limit => 100, :default => "0", :null => false
-    t.string "leftdate", :limit => 100, :default => "0", :null => false
-    t.string "leftid",   :limit => 100, :default => "0", :null => false
-  end
 
   create_table "user", :primary_key => "userid", :force => true do |t|
     t.integer "usergroupid",       :limit => 2,        :default => 0,     :null => false
