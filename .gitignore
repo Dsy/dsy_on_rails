@@ -6,3 +6,4 @@ tmp/
 *.swp
 config/unicorn.rb
 config/database.yml
+Capfile
