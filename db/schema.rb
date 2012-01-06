@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106171517) do
+ActiveRecord::Schema.define(:version => 20120106171804) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -60,29 +60,6 @@ ActiveRecord::Schema.define(:version => 20120106171517) do
     t.integer "styleoverride",     :limit => 2,   :default => 0,  :null => false
     t.string  "password",          :limit => 50,  :default => "", :null => false
   end
-
-  create_table "forumpermission", :primary_key => "forumpermissionid", :force => true do |t|
-    t.integer "forumid",           :limit => 2, :default => 0, :null => false
-    t.integer "usergroupid",       :limit => 2, :default => 0, :null => false
-    t.integer "canview",           :limit => 2, :default => 0, :null => false
-    t.integer "cansearch",         :limit => 2, :default => 0, :null => false
-    t.integer "canemail",          :limit => 2, :default => 0, :null => false
-    t.integer "canpostnew",        :limit => 2, :default => 0, :null => false
-    t.integer "canmove",           :limit => 2, :default => 0, :null => false
-    t.integer "canopenclose",      :limit => 2, :default => 0, :null => false
-    t.integer "candeletethread",   :limit => 2, :default => 0, :null => false
-    t.integer "canreplyown",       :limit => 2, :default => 0, :null => false
-    t.integer "canreplyothers",    :limit => 2, :default => 0, :null => false
-    t.integer "canviewothers",     :limit => 2, :default => 0, :null => false
-    t.integer "caneditpost",       :limit => 2, :default => 0, :null => false
-    t.integer "candeletepost",     :limit => 2, :default => 0, :null => false
-    t.integer "canpostattachment", :limit => 2, :default => 0, :null => false
-    t.integer "canpostpoll",       :limit => 2, :default => 0, :null => false
-    t.integer "canvote",           :limit => 2, :default => 0, :null => false
-    t.integer "cangetattachment",  :limit => 2, :default => 1, :null => false
-  end
-
-  add_index "forumpermission", ["usergroupid", "forumid"], :name => "ugid_fid"
 
   create_table "moderator", :primary_key => "moderatorid", :force => true do |t|
     t.integer "userid",                              :default => 0, :null => false
