@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106171211) do
+ActiveRecord::Schema.define(:version => 20120106171517) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -83,11 +83,6 @@ ActiveRecord::Schema.define(:version => 20120106171211) do
   end
 
   add_index "forumpermission", ["usergroupid", "forumid"], :name => "ugid_fid"
-
-  create_table "icon", :primary_key => "iconid", :force => true do |t|
-    t.string "title",    :limit => 100, :default => "", :null => false
-    t.string "iconpath", :limit => 100, :default => "", :null => false
-  end
 
   create_table "moderator", :primary_key => "moderatorid", :force => true do |t|
     t.integer "userid",                              :default => 0, :null => false
