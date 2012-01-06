@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106150158) do
-
-  create_table "announcement", :primary_key => "announcementid", :force => true do |t|
-    t.string  "title",     :limit => 250,      :default => "", :null => false
-    t.integer "userid",                        :default => 0,  :null => false
-    t.integer "startdate",                     :default => 0,  :null => false
-    t.integer "enddate",                       :default => 0,  :null => false
-    t.text    "pagetext",  :limit => 16777215,                 :null => false
-    t.integer "forumid",   :limit => 2,        :default => 0,  :null => false
-  end
-
-  add_index "announcement", ["forumid"], :name => "forumid"
+ActiveRecord::Schema.define(:version => 20120106150711) do
 
   create_table "attachment", :primary_key => "attachmentid", :force => true do |t|
     t.integer "userid",                       :default => 0,  :null => false
