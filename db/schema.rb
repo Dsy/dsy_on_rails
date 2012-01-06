@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106162905) do
+ActiveRecord::Schema.define(:version => 20120106163151) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -933,77 +933,6 @@ ActiveRecord::Schema.define(:version => 20120106162905) do
   create_table "usertitle", :primary_key => "usertitleid", :force => true do |t|
     t.integer "minposts", :limit => 2,   :default => 0,  :null => false
     t.string  "title",    :limit => 250, :default => "", :null => false
-  end
-
-  create_table "vbstats_counter", :id => false, :force => true do |t|
-    t.string  "type",  :limit => 80, :default => "", :null => false
-    t.string  "var",   :limit => 80, :default => "", :null => false
-    t.integer "count",               :default => 0,  :null => false
-  end
-
-  create_table "vbstats_countries", :primary_key => "code", :force => true do |t|
-    t.integer "hits",                  :default => 0,  :null => false
-    t.string  "country", :limit => 50, :default => "", :null => false
-    t.string  "area",    :limit => 4,  :default => "", :null => false
-  end
-
-  create_table "vbstats_date", :id => false, :force => true do |t|
-    t.integer "year",                   :default => 0,  :null => false
-    t.integer "month",                  :default => 0,  :null => false
-    t.integer "count",                  :default => 0,  :null => false
-    t.string  "day_text", :limit => 10, :default => "", :null => false
-    t.string  "date",     :limit => 10, :default => "", :null => false
-  end
-
-  create_table "vbstats_exclude", :primary_key => "ID", :force => true do |t|
-    t.string "exclude_url", :default => "", :null => false
-  end
-
-  add_index "vbstats_exclude", ["ID"], :name => "ID", :unique => true
-  add_index "vbstats_exclude", ["exclude_url"], :name => "exclude_url"
-
-  create_table "vbstats_options", :id => false, :force => true do |t|
-    t.string  "startdate",                  :default => "", :null => false
-    t.string  "exforum",                    :default => "", :null => false
-    t.string  "statloc",                    :default => "", :null => false
-    t.string  "flagloc",                    :default => "", :null => false
-    t.integer "useflags",     :limit => 2,  :default => 0,  :null => false
-    t.integer "useonnow",     :limit => 2,  :default => 0,  :null => false
-    t.integer "usequeue",     :limit => 2,  :default => 0,  :null => false
-    t.integer "usevbp",       :limit => 2,  :default => 0,  :null => false
-    t.integer "usevbpl",      :limit => 2,  :default => 0,  :null => false
-    t.integer "refermax",     :limit => 2,  :default => 0,  :null => false
-    t.integer "queuemax",     :limit => 2,  :default => 0,  :null => false
-    t.integer "toppostmax",   :limit => 2,  :default => 0,  :null => false
-    t.integer "topthreadmax", :limit => 2,  :default => 0,  :null => false
-    t.integer "recruitmax",   :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar1",      :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar2",      :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar3",      :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar4",      :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar5",      :limit => 2,  :default => 0,  :null => false
-    t.integer "incbar6",      :limit => 2,  :default => 0,  :null => false
-    t.integer "norefer1",     :limit => 2,  :default => 0,  :null => false
-    t.integer "norefer2",     :limit => 2,  :default => 0,  :null => false
-    t.string  "color1",       :limit => 10, :default => "", :null => false
-    t.string  "color2",       :limit => 10, :default => "", :null => false
-    t.string  "color3",       :limit => 10, :default => "", :null => false
-    t.string  "color4",       :limit => 10, :default => "", :null => false
-    t.string  "acolor",       :limit => 10, :default => "", :null => false
-    t.string  "scolor",       :limit => 10, :default => "", :null => false
-    t.string  "mocolor",      :limit => 10, :default => "", :null => false
-    t.string  "mecolor",      :limit => 10, :default => "", :null => false
-    t.string  "ucolor",       :limit => 10, :default => "", :null => false
-    t.string  "vbs_field1",                 :default => "", :null => false
-    t.string  "vbs_field2",                 :default => "", :null => false
-    t.string  "vbs_field3",                 :default => "", :null => false
-  end
-
-  create_table "vbstats_referrer", :force => true do |t|
-    t.text    "url"
-    t.integer "hits", :limit => 3
-    t.date    "date"
-    t.time    "time"
   end
 
   create_table "wifi", :force => true do |t|
