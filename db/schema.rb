@@ -11,19 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106130557) do
-
-  create_table "GrabbedPeople", :force => true do |t|
-    t.string    "nome",      :limit => 50, :default => "", :null => false
-    t.string    "cognome",   :limit => 50, :default => "", :null => false
-    t.timestamp "timestamp",                               :null => false
-  end
-
-  create_table "GrabbedPeople_dati", :id => false, :force => true do |t|
-    t.integer "id",        :default => 0, :null => false
-    t.text    "attributo"
-    t.text    "val"
-  end
+ActiveRecord::Schema.define(:version => 20120106133000) do
 
   create_table "access", :id => false, :force => true do |t|
     t.integer "userid",                  :default => 0, :null => false
@@ -394,6 +382,21 @@ ActiveRecord::Schema.define(:version => 20120106130557) do
   end
 
   add_index "nm_utenti", ["vb_id"], :name => "vb_id", :unique => true
+
+  create_table "people", :force => true do |t|
+    t.string    "name",       :limit => 50, :default => "", :null => false
+    t.string    "surname",    :limit => 50, :default => "", :null => false
+    t.timestamp "created_at",                               :null => false
+    t.datetime  "updated_at"
+  end
+
+  create_table "people_attributes", :id => false, :force => true do |t|
+    t.integer  "id",         :default => 0, :null => false
+    t.text     "attribute"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "poll", :primary_key => "pollid", :force => true do |t|
     t.string  "question",      :limit => 100, :default => "", :null => false
