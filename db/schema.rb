@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106175933) do
+ActiveRecord::Schema.define(:version => 20120106180213) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -625,46 +625,5 @@ ActiveRecord::Schema.define(:version => 20120106175933) do
     t.string "userspezial485", :limit => 20,  :default => "", :null => false
     t.string "userspezial486", :limit => 20,  :default => "", :null => false
   end
-
-  create_table "usergroup", :primary_key => "usergroupid", :force => true do |t|
-    t.string  "title",             :limit => 100, :default => "", :null => false
-    t.string  "usertitle",         :limit => 100, :default => "", :null => false
-    t.integer "cancontrolpanel",   :limit => 2,   :default => 0,  :null => false
-    t.integer "canmodifyprofile",  :limit => 2,   :default => 0,  :null => false
-    t.integer "canviewmembers",    :limit => 2,   :default => 0,  :null => false
-    t.integer "canview",           :limit => 2,   :default => 0,  :null => false
-    t.integer "cansearch",         :limit => 2,   :default => 0,  :null => false
-    t.integer "canemail",          :limit => 2,   :default => 0,  :null => false
-    t.integer "canpostnew",        :limit => 2,   :default => 0,  :null => false
-    t.integer "canmove",           :limit => 2,   :default => 0,  :null => false
-    t.integer "canopenclose",      :limit => 2,   :default => 0,  :null => false
-    t.integer "candeletethread",   :limit => 2,   :default => 0,  :null => false
-    t.integer "canreplyown",       :limit => 2,   :default => 0,  :null => false
-    t.integer "canreplyothers",    :limit => 2,   :default => 0,  :null => false
-    t.integer "canviewothers",     :limit => 2,   :default => 0,  :null => false
-    t.integer "caneditpost",       :limit => 2,   :default => 0,  :null => false
-    t.integer "candeletepost",     :limit => 2,   :default => 0,  :null => false
-    t.integer "canusepm",          :limit => 2,   :default => 0,  :null => false
-    t.integer "canpostpoll",       :limit => 2,   :default => 0,  :null => false
-    t.integer "canvote",           :limit => 2,   :default => 0,  :null => false
-    t.integer "canpostattachment", :limit => 2,   :default => 0,  :null => false
-    t.integer "canpublicevent",    :limit => 2,   :default => 0,  :null => false
-    t.integer "canpublicedit",     :limit => 2,   :default => 0,  :null => false
-    t.integer "canthreadrate",     :limit => 2,   :default => 1,  :null => false
-    t.integer "maxbuddypm",        :limit => 2,   :default => 5,  :null => false
-    t.integer "maxforwardpm",      :limit => 2,   :default => 5,  :null => false
-    t.integer "cantrackpm",        :limit => 2,   :default => 1,  :null => false
-    t.integer "candenypmreceipts", :limit => 2,   :default => 1,  :null => false
-    t.integer "canwhosonline",     :limit => 2,   :default => 1,  :null => false
-    t.integer "canwhosonlineip",   :limit => 2,   :default => 0,  :null => false
-    t.integer "ismoderator",       :limit => 2,   :default => 0,  :null => false
-    t.integer "showgroup",         :limit => 2,   :default => 0,  :null => false
-    t.integer "cangetattachment",  :limit => 2,   :default => 1,  :null => false
-    t.integer "canusebookmarks",   :limit => 2,   :default => 0,  :null => false
-    t.integer "bmminposts",        :limit => 2,   :default => 0,  :null => false
-    t.integer "bmmaxperuser",      :limit => 2,   :default => 50, :null => false
-  end
-
-  add_index "usergroup", ["showgroup"], :name => "showgroup"
 
 end
