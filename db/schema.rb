@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106145850) do
-
-  create_table "adminutil", :id => false, :force => true do |t|
-    t.string "title", :limit => 10,       :default => "", :null => false
-    t.text   "text",  :limit => 16777215,                 :null => false
-  end
-
-  add_index "adminutil", ["title"], :name => "title"
+ActiveRecord::Schema.define(:version => 20120106150158) do
 
   create_table "announcement", :primary_key => "announcementid", :force => true do |t|
     t.string  "title",     :limit => 250,      :default => "", :null => false
