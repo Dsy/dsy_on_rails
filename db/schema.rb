@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106161818) do
+ActiveRecord::Schema.define(:version => 20120106162310) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -29,21 +29,6 @@ ActiveRecord::Schema.define(:version => 20120106161818) do
     t.text    "avatardata", :limit => 16777215,                 :null => false
     t.integer "dateline",                       :default => 0,  :null => false
     t.string  "filename",   :limit => 100,      :default => "", :null => false
-  end
-
-  create_table "faq", :primary_key => "faqid", :force => true do |t|
-    t.binary  "title",                    :null => false
-    t.integer "showorder", :default => 0, :null => false
-  end
-
-  create_table "faqentries", :primary_key => "entryid", :force => true do |t|
-    t.integer "faqid",                         :default => 0, :null => false
-    t.binary  "title",                                        :null => false
-    t.text    "text",      :limit => 16777215,                :null => false
-    t.integer "showorder",                     :default => 0, :null => false
-    t.integer "dohtml",    :limit => 2,        :default => 0, :null => false
-    t.integer "dobbcode",  :limit => 2,        :default => 0, :null => false
-    t.integer "dosmilies", :limit => 2,        :default => 0, :null => false
   end
 
   create_table "forum", :primary_key => "forumid", :force => true do |t|
