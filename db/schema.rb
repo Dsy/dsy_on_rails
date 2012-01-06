@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106161208) do
+ActiveRecord::Schema.define(:version => 20120106161423) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -24,24 +24,6 @@ ActiveRecord::Schema.define(:version => 20120106161208) do
   end
 
   add_index "attachments", ["counter"], :name => "counter"
-
-  create_table "bookmarks", :primary_key => "bmid", :force => true do |t|
-    t.integer "userid",      :limit => 2,        :default => 0,   :null => false
-    t.text    "title",       :limit => 16777215,                  :null => false
-    t.text    "url",         :limit => 16777215,                  :null => false
-    t.text    "description", :limit => 16777215,                  :null => false
-    t.string  "category",    :limit => 100,      :default => "0", :null => false
-    t.integer "public",      :limit => 2,        :default => 0,   :null => false
-    t.integer "added",                           :default => 0,   :null => false
-    t.integer "changed",                         :default => 0,   :null => false
-    t.integer "counter",     :limit => 2,        :default => 0,   :null => false
-    t.integer "votes",       :limit => 2,        :default => 0,   :null => false
-    t.string  "votesavg",    :limit => 5,        :default => "0", :null => false
-    t.string  "lastvoter",   :limit => 20,       :default => "0", :null => false
-  end
-
-  add_index "bookmarks", ["category"], :name => "category"
-  add_index "bookmarks", ["userid"], :name => "userid"
 
   create_table "calendar_events", :primary_key => "eventid", :force => true do |t|
     t.integer "userid",                           :default => 0,  :null => false
