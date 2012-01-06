@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106165808) do
+ActiveRecord::Schema.define(:version => 20120106170314) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -222,13 +222,6 @@ ActiveRecord::Schema.define(:version => 20120106165808) do
     t.string "title",      :limit => 100, :default => "", :null => false
     t.string "smilietext", :limit => 10,  :default => "", :null => false
     t.string "smiliepath", :limit => 100, :default => "", :null => false
-  end
-
-  create_table "style", :primary_key => "styleid", :force => true do |t|
-    t.integer "replacementsetid", :limit => 2,   :default => 0,  :null => false
-    t.integer "templatesetid",    :limit => 2,   :default => 0,  :null => false
-    t.string  "title",            :limit => 250, :default => "", :null => false
-    t.integer "userselect",       :limit => 2,   :default => 0,  :null => false
   end
 
   create_table "subscribeforum", :primary_key => "subscribeforumid", :force => true do |t|
