@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106150950) do
+ActiveRecord::Schema.define(:version => 20120106155910) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(:version => 20120106150950) do
   end
 
   add_index "attachments", ["counter"], :name => "counter"
-
-  create_table "avatar", :primary_key => "avatarid", :force => true do |t|
-    t.string  "title",        :limit => 100, :default => "", :null => false
-    t.integer "minimumposts", :limit => 2,   :default => 0,  :null => false
-    t.string  "avatarpath",   :limit => 100, :default => "", :null => false
-  end
 
   create_table "bbcode", :primary_key => "bbcodeid", :force => true do |t|
     t.string  "bbcodetag",         :limit => 200,      :default => "", :null => false
