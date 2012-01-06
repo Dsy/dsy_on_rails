@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106172815) do
+ActiveRecord::Schema.define(:version => 20120106173150) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -138,15 +138,6 @@ ActiveRecord::Schema.define(:version => 20120106172815) do
   add_index "thread", ["forumid", "visible", "sticky", "lastpost"], :name => "forumid"
   add_index "thread", ["iconid"], :name => "iconid"
   add_index "thread", ["pollid"], :name => "pollid"
-
-  create_table "threadrate", :primary_key => "threadrateid", :force => true do |t|
-    t.integer "threadid",                :default => 0,  :null => false
-    t.integer "userid",                  :default => 0,  :null => false
-    t.integer "vote",      :limit => 2,  :default => 0,  :null => false
-    t.string  "ipaddress", :limit => 20, :default => "", :null => false
-  end
-
-  add_index "threadrate", ["threadid"], :name => "threadid"
 
   create_table "user", :primary_key => "userid", :force => true do |t|
     t.integer "usergroupid",       :limit => 2,        :default => 0,     :null => false
