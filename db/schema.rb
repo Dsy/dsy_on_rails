@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106170442) do
+ActiveRecord::Schema.define(:version => 20120106171211) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -181,21 +181,6 @@ ActiveRecord::Schema.define(:version => 20120106170442) do
     t.integer "size",         :limit => 2,   :default => 25,  :null => false
     t.integer "displayorder", :limit => 2,   :default => 0,   :null => false
     t.integer "editable",     :limit => 2,   :default => 1,   :null => false
-  end
-
-  create_table "setting", :primary_key => "settingid", :force => true do |t|
-    t.integer "settinggroupid", :limit => 2,        :default => 0,  :null => false
-    t.string  "title",          :limit => 100,      :default => "", :null => false
-    t.string  "varname",        :limit => 100,      :default => "", :null => false
-    t.text    "value",          :limit => 16777215,                 :null => false
-    t.text    "description",    :limit => 16777215,                 :null => false
-    t.text    "optioncode",     :limit => 16777215,                 :null => false
-    t.integer "displayorder",   :limit => 2,        :default => 0,  :null => false
-  end
-
-  create_table "settinggroup", :primary_key => "settinggroupid", :force => true do |t|
-    t.string  "title",        :limit => 100, :default => "", :null => false
-    t.integer "displayorder", :limit => 2,   :default => 0,  :null => false
   end
 
   create_table "smilie", :primary_key => "smilieid", :force => true do |t|
