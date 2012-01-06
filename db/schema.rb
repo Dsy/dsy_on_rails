@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106163502) do
+ActiveRecord::Schema.define(:version => 20120106164047) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -247,25 +247,6 @@ ActiveRecord::Schema.define(:version => 20120106163502) do
 
   create_table "replacementset", :primary_key => "replacementsetid", :force => true do |t|
     t.string "title", :limit => 250, :default => "", :null => false
-  end
-
-  create_table "search", :primary_key => "searchid", :force => true do |t|
-    t.text    "query",       :limit => 16777215,                 :null => false
-    t.text    "postids",     :limit => 16777215,                 :null => false
-    t.integer "dateline",                        :default => 0,  :null => false
-    t.string  "querystring", :limit => 200,      :default => "", :null => false
-    t.integer "showposts",   :limit => 2,        :default => 0,  :null => false
-    t.integer "userid",                          :default => 0,  :null => false
-    t.string  "ipaddress",   :limit => 20,       :default => "", :null => false
-  end
-
-  add_index "search", ["querystring"], :name => "querystring"
-  add_index "search", ["userid"], :name => "userid"
-
-  create_table "searchindex", :id => false, :force => true do |t|
-    t.integer "wordid",               :default => 0, :null => false
-    t.integer "postid",               :default => 0, :null => false
-    t.integer "intitle", :limit => 2, :default => 0, :null => false
   end
 
   create_table "setting", :primary_key => "settingid", :force => true do |t|
@@ -928,11 +909,5 @@ ActiveRecord::Schema.define(:version => 20120106163502) do
     t.integer "session",                  :default => 0,   :null => false
     t.integer "time"
   end
-
-  create_table "word", :primary_key => "wordid", :force => true do |t|
-    t.string "title", :limit => 50, :default => "", :null => false
-  end
-
-  add_index "word", ["title"], :name => "title", :unique => true
 
 end
