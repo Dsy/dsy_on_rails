@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106172113) do
+ActiveRecord::Schema.define(:version => 20120106172249) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -75,27 +75,6 @@ ActiveRecord::Schema.define(:version => 20120106172113) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "poll", :primary_key => "pollid", :force => true do |t|
-    t.string  "question",      :limit => 100, :default => "", :null => false
-    t.integer "dateline",                     :default => 0,  :null => false
-    t.text    "options",                                      :null => false
-    t.text    "votes",                                        :null => false
-    t.integer "active",        :limit => 2,   :default => 1,  :null => false
-    t.integer "numberoptions", :limit => 2,   :default => 0,  :null => false
-    t.integer "timeout",       :limit => 2,   :default => 0,  :null => false
-    t.integer "multiple",      :limit => 2,   :default => 0,  :null => false
-    t.integer "voters",        :limit => 2,   :default => 0,  :null => false
-  end
-
-  create_table "pollvote", :primary_key => "pollvoteid", :force => true do |t|
-    t.integer "pollid",     :default => 0, :null => false
-    t.integer "userid",     :default => 0, :null => false
-    t.integer "votedate",   :default => 0, :null => false
-    t.integer "voteoption", :default => 0, :null => false
-  end
-
-  add_index "pollvote", ["userid", "pollid"], :name => "userid"
 
   create_table "post", :primary_key => "postid", :force => true do |t|
     t.integer "threadid",                          :default => 0,  :null => false
