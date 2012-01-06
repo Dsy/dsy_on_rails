@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106163151) do
+ActiveRecord::Schema.define(:version => 20120106163502) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -266,26 +266,6 @@ ActiveRecord::Schema.define(:version => 20120106163151) do
     t.integer "wordid",               :default => 0, :null => false
     t.integer "postid",               :default => 0, :null => false
     t.integer "intitle", :limit => 2, :default => 0, :null => false
-  end
-
-  create_table "session", :primary_key => "sessionhash", :force => true do |t|
-    t.integer "userid",                     :default => 0,  :null => false
-    t.string  "host",         :limit => 50, :default => "", :null => false
-    t.string  "useragent",    :limit => 50, :default => "", :null => false
-    t.integer "lastactivity",               :default => 0,  :null => false
-    t.string  "location",                   :default => "", :null => false
-    t.integer "styleid",      :limit => 2,  :default => 0,  :null => false
-    t.string  "althash",      :limit => 32, :default => "", :null => false
-  end
-
-  create_table "session_log", :force => true do |t|
-    t.integer "userid",                     :default => 0,   :null => false
-    t.string  "host",         :limit => 50, :default => "",  :null => false
-    t.string  "useragent",    :limit => 50, :default => "",  :null => false
-    t.integer "lastactivity",               :default => 0,   :null => false
-    t.string  "location",                   :default => "",  :null => false
-    t.string  "sessionhash",  :limit => 32, :default => "0", :null => false
-    t.string  "althash",      :limit => 32, :default => "",  :null => false
   end
 
   create_table "setting", :primary_key => "settingid", :force => true do |t|
