@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106162310) do
+ActiveRecord::Schema.define(:version => 20120106162514) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -88,58 +88,6 @@ ActiveRecord::Schema.define(:version => 20120106162310) do
     t.string "title",    :limit => 100, :default => "", :null => false
     t.string "iconpath", :limit => 100, :default => "", :null => false
   end
-
-  create_table "journal", :primary_key => "journalid", :force => true do |t|
-    t.text    "title",                                     :null => false
-    t.text    "description",                               :null => false
-    t.text    "imagename",                                 :null => false
-    t.integer "entries",                    :default => 0, :null => false
-    t.integer "views",                      :default => 0, :null => false
-    t.integer "enabled",       :limit => 2, :default => 0
-    t.integer "timestamp",                  :default => 0, :null => false
-    t.integer "userid",                     :default => 0, :null => false
-    t.text    "mood",                                      :null => false
-    t.text    "np",                                        :null => false
-    t.text    "html_blog"
-    t.text    "html_commenti"
-    t.integer "html_custom",   :limit => 1, :default => 0
-    t.integer "allow_anon",    :limit => 1, :default => 1
-    t.integer "notify_me",     :limit => 1, :default => 0
-  end
-
-  add_index "journal", ["userid"], :name => "userid"
-
-  create_table "journal_comments", :primary_key => "commentid", :force => true do |t|
-    t.text    "comment",                                   :null => false
-    t.integer "timestamp",                  :default => 0, :null => false
-    t.integer "entryid",                    :default => 0, :null => false
-    t.integer "journalid",                  :default => 0, :null => false
-    t.integer "userid",                     :default => 0, :null => false
-    t.string  "username",     :limit => 50
-    t.integer "displayorder",               :default => 0, :null => false
-    t.string  "ipaddress",    :limit => 16
-  end
-
-  add_index "journal_comments", ["entryid"], :name => "entryid"
-  add_index "journal_comments", ["journalid"], :name => "journalid"
-  add_index "journal_comments", ["username"], :name => "username"
-
-  create_table "journal_entry", :primary_key => "entryid", :force => true do |t|
-    t.text    "title",                                    :null => false
-    t.text    "entry",                                    :null => false
-    t.integer "private",      :limit => 2, :default => 0, :null => false
-    t.integer "timestamp",                 :default => 0, :null => false
-    t.integer "userid",                    :default => 0, :null => false
-    t.integer "journalid",                 :default => 0, :null => false
-    t.integer "displayorder",              :default => 0, :null => false
-    t.integer "comments",                  :default => 0, :null => false
-    t.text    "mood",                                     :null => false
-    t.text    "np",                                       :null => false
-  end
-
-  add_index "journal_entry", ["journalid"], :name => "journalid"
-  add_index "journal_entry", ["timestamp"], :name => "timestamp"
-  add_index "journal_entry", ["userid"], :name => "userid"
 
   create_table "mailalias", :primary_key => "userid", :force => true do |t|
     t.string "alias",                                  :limit => 100, :default => "",                      :null => false
