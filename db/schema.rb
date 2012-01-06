@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106180822) do
+ActiveRecord::Schema.define(:version => 20120106184011) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(:version => 20120106180822) do
 
   add_index "attachments", ["counter"], :name => "counter"
 
-  create_table "customavatar", :primary_key => "userid", :force => true do |t|
-    t.text    "avatardata", :limit => 16777215,                 :null => false
-    t.integer "dateline",                       :default => 0,  :null => false
-    t.string  "filename",   :limit => 100,      :default => "", :null => false
+  create_table "avatar", :primary_key => "user_id", :force => true do |t|
+    t.text     "data",       :limit => 16777215,                 :null => false
+    t.integer  "created_at",                     :default => 0,  :null => false
+    t.string   "filename",   :limit => 100,      :default => "", :null => false
+    t.datetime "updated_at"
   end
 
   create_table "forum", :primary_key => "forumid", :force => true do |t|
@@ -99,17 +100,6 @@ ActiveRecord::Schema.define(:version => 20120106180822) do
   add_index "post", ["ipaddress"], :name => "ipaddress"
   add_index "post", ["threadid", "userid"], :name => "threadid"
   add_index "post", ["userid"], :name => "userid"
-
-  create_table "profilefield", :primary_key => "profilefieldid", :force => true do |t|
-    t.string  "title",        :limit => 50,  :default => "",  :null => false
-    t.string  "description",  :limit => 250, :default => "",  :null => false
-    t.integer "required",     :limit => 2,   :default => 0,   :null => false
-    t.integer "hidden",       :limit => 2,   :default => 0,   :null => false
-    t.integer "maxlength",    :limit => 2,   :default => 250, :null => false
-    t.integer "size",         :limit => 2,   :default => 25,  :null => false
-    t.integer "displayorder", :limit => 2,   :default => 0,   :null => false
-    t.integer "editable",     :limit => 2,   :default => 1,   :null => false
-  end
 
   create_table "thread", :primary_key => "threadid", :force => true do |t|
     t.string  "title",        :limit => 100, :default => "", :null => false
