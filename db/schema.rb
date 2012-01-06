@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106145036) do
-
-  create_table "adminlog", :primary_key => "adminlogid", :force => true do |t|
-    t.integer "userid",                   :default => 0,  :null => false
-    t.integer "dateline",                 :default => 0,  :null => false
-    t.string  "script",    :limit => 20,  :default => "", :null => false
-    t.string  "action",    :limit => 20,  :default => "", :null => false
-    t.string  "extrainfo", :limit => 200, :default => "", :null => false
-    t.string  "ipaddress", :limit => 15,  :default => "", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120106145850) do
 
   create_table "adminutil", :id => false, :force => true do |t|
     t.string "title", :limit => 10,       :default => "", :null => false
