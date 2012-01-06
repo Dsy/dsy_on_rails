@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106172625) do
+ActiveRecord::Schema.define(:version => 20120106172815) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -110,22 +110,6 @@ ActiveRecord::Schema.define(:version => 20120106172625) do
     t.integer "displayorder", :limit => 2,   :default => 0,   :null => false
     t.integer "editable",     :limit => 2,   :default => 1,   :null => false
   end
-
-  create_table "subscribeforum", :primary_key => "subscribeforumid", :force => true do |t|
-    t.integer "userid",                   :default => 0, :null => false
-    t.integer "forumid",     :limit => 2, :default => 0, :null => false
-    t.integer "emailupdate", :limit => 2, :default => 0, :null => false
-  end
-
-  add_index "subscribeforum", ["userid"], :name => "userid"
-
-  create_table "subscribethread", :primary_key => "subscribethreadid", :force => true do |t|
-    t.integer "userid",                   :default => 0, :null => false
-    t.integer "threadid",                 :default => 0, :null => false
-    t.integer "emailupdate", :limit => 2, :default => 0, :null => false
-  end
-
-  add_index "subscribethread", ["threadid"], :name => "threadid"
 
   create_table "thread", :primary_key => "threadid", :force => true do |t|
     t.string  "title",        :limit => 100, :default => "", :null => false
