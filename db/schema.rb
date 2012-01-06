@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106133000) do
-
-  create_table "access", :id => false, :force => true do |t|
-    t.integer "userid",                  :default => 0, :null => false
-    t.integer "forumid",    :limit => 2, :default => 0, :null => false
-    t.integer "accessmask", :limit => 2, :default => 0, :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120106145036) do
 
   create_table "adminlog", :primary_key => "adminlogid", :force => true do |t|
     t.integer "userid",                   :default => 0,  :null => false
