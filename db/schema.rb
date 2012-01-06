@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106161423) do
+ActiveRecord::Schema.define(:version => 20120106161619) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -24,17 +24,6 @@ ActiveRecord::Schema.define(:version => 20120106161423) do
   end
 
   add_index "attachments", ["counter"], :name => "counter"
-
-  create_table "calendar_events", :primary_key => "eventid", :force => true do |t|
-    t.integer "userid",                           :default => 0,  :null => false
-    t.text    "event",        :limit => 16777215,                 :null => false
-    t.date    "eventdate",                                        :null => false
-    t.integer "public",       :limit => 2,        :default => 0,  :null => false
-    t.string  "subject",      :limit => 254,      :default => "", :null => false
-    t.integer "allowsmilies", :limit => 2,        :default => 1,  :null => false
-  end
-
-  add_index "calendar_events", ["userid"], :name => "userid"
 
   create_table "chat_ban_users", :id => false, :force => true do |t|
     t.string  "username",  :limit => 30,  :default => "",    :null => false
