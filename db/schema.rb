@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106161619) do
+ActiveRecord::Schema.define(:version => 20120106161818) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -24,27 +24,6 @@ ActiveRecord::Schema.define(:version => 20120106161619) do
   end
 
   add_index "attachments", ["counter"], :name => "counter"
-
-  create_table "chat_ban_users", :id => false, :force => true do |t|
-    t.string  "username",  :limit => 30,  :default => "",    :null => false
-    t.boolean "latin1",                   :default => false, :null => false
-    t.string  "ip",        :limit => 16,  :default => "",    :null => false
-    t.string  "rooms",     :limit => 100, :default => "",    :null => false
-    t.integer "ban_until",                :default => 0,     :null => false
-  end
-
-  create_table "chat_messages", :id => false, :force => true do |t|
-    t.boolean "type",                   :default => false, :null => false
-    t.string  "room",     :limit => 30, :default => "",    :null => false
-    t.string  "username", :limit => 30, :default => "",    :null => false
-    t.boolean "latin1",                 :default => false, :null => false
-    t.integer "m_time",                 :default => 0,     :null => false
-    t.string  "address",  :limit => 30, :default => "",    :null => false
-    t.text    "message",                                   :null => false
-  end
-
-  create_table "chat_users", :primary_key => "username", :force => true do |t|
-  end
 
   create_table "customavatar", :primary_key => "userid", :force => true do |t|
     t.text    "avatardata", :limit => 16777215,                 :null => false
