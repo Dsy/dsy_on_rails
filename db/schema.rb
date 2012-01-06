@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106155910) do
+ActiveRecord::Schema.define(:version => 20120106161208) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(:version => 20120106155910) do
   end
 
   add_index "attachments", ["counter"], :name => "counter"
-
-  create_table "bbcode", :primary_key => "bbcodeid", :force => true do |t|
-    t.string  "bbcodetag",         :limit => 200,      :default => "", :null => false
-    t.string  "bbcodereplacement", :limit => 200,      :default => "", :null => false
-    t.string  "bbcodeexample",     :limit => 200,      :default => "", :null => false
-    t.text    "bbcodeexplanation", :limit => 16777215,                 :null => false
-    t.integer "twoparams",         :limit => 2,        :default => 0,  :null => false
-  end
 
   create_table "bookmarks", :primary_key => "bmid", :force => true do |t|
     t.integer "userid",      :limit => 2,        :default => 0,   :null => false
