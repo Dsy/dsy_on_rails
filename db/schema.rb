@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106150711) do
+ActiveRecord::Schema.define(:version => 20120106150950) do
 
-  create_table "attachment", :primary_key => "attachmentid", :force => true do |t|
-    t.integer "userid",                       :default => 0,  :null => false
-    t.integer "dateline",                     :default => 0,  :null => false
-    t.string  "filename", :limit => 100,      :default => "", :null => false
-    t.text    "filedata", :limit => 16777215,                 :null => false
-    t.integer "visible",  :limit => 2,        :default => 0,  :null => false
-    t.integer "counter",  :limit => 2,        :default => 0,  :null => false
+  create_table "attachments", :force => true do |t|
+    t.integer  "user_id",                        :default => 0,  :null => false
+    t.integer  "created_at",                     :default => 0,  :null => false
+    t.string   "filename",   :limit => 100,      :default => "", :null => false
+    t.text     "filedata",   :limit => 16777215,                 :null => false
+    t.integer  "visible",    :limit => 2,        :default => 0,  :null => false
+    t.integer  "counter",    :limit => 2,        :default => 0,  :null => false
+    t.datetime "updated_at"
   end
 
-  add_index "attachment", ["counter"], :name => "counter"
+  add_index "attachments", ["counter"], :name => "counter"
 
   create_table "avatar", :primary_key => "avatarid", :force => true do |t|
     t.string  "title",        :limit => 100, :default => "", :null => false
