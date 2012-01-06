@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106171804) do
+ActiveRecord::Schema.define(:version => 20120106172113) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -60,29 +60,6 @@ ActiveRecord::Schema.define(:version => 20120106171804) do
     t.integer "styleoverride",     :limit => 2,   :default => 0,  :null => false
     t.string  "password",          :limit => 50,  :default => "", :null => false
   end
-
-  create_table "moderator", :primary_key => "moderatorid", :force => true do |t|
-    t.integer "userid",                              :default => 0, :null => false
-    t.integer "forumid",                :limit => 2, :default => 0, :null => false
-    t.integer "newthreademail",         :limit => 2, :default => 0, :null => false
-    t.integer "newpostemail",           :limit => 2, :default => 0, :null => false
-    t.integer "caneditposts",           :limit => 2, :default => 0, :null => false
-    t.integer "candeleteposts",         :limit => 2, :default => 0, :null => false
-    t.integer "canviewips",             :limit => 2, :default => 0, :null => false
-    t.integer "canmanagethreads",       :limit => 2, :default => 0, :null => false
-    t.integer "canopenclose",           :limit => 2, :default => 0, :null => false
-    t.integer "caneditthreads",         :limit => 2, :default => 0, :null => false
-    t.integer "caneditstyles",          :limit => 2, :default => 0, :null => false
-    t.integer "canbanusers",            :limit => 2, :default => 0, :null => false
-    t.integer "canviewprofile",         :limit => 2, :default => 0, :null => false
-    t.integer "canannounce",            :limit => 2, :default => 0, :null => false
-    t.integer "canmassmove",            :limit => 2, :default => 0, :null => false
-    t.integer "canmassprune",           :limit => 2, :default => 0, :null => false
-    t.integer "canmoderateposts",       :limit => 2, :default => 0, :null => false
-    t.integer "canmoderateattachments", :limit => 2, :default => 0, :null => false
-  end
-
-  add_index "moderator", ["userid", "forumid"], :name => "userid"
 
   create_table "people", :force => true do |t|
     t.string    "name",       :limit => 50, :default => "", :null => false
