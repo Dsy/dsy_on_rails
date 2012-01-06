@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106164335) do
+ActiveRecord::Schema.define(:version => 20120106164645) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -87,40 +87,6 @@ ActiveRecord::Schema.define(:version => 20120106164335) do
   create_table "icon", :primary_key => "iconid", :force => true do |t|
     t.string "title",    :limit => 100, :default => "", :null => false
     t.string "iconpath", :limit => 100, :default => "", :null => false
-  end
-
-  create_table "mailalias", :primary_key => "userid", :force => true do |t|
-    t.string "alias",                                  :limit => 100, :default => "",                      :null => false
-    t.string "virus_scanners_rules",                   :limit => 100, :default => "yes",                   :null => false
-    t.string "still_deliver_silent_viruses_rules",     :limit => 100, :default => "yes",                   :null => false
-    t.string "allow_IFrame_tags_rules",                :limit => 100, :default => "no",                    :null => false
-    t.string "allow_form_tags_rules",                  :limit => 100, :default => "disarm",                :null => false
-    t.string "allow_object_codebase_tags_rules",       :limit => 100, :default => "disarm",                :null => false
-    t.string "convert_dangerous_HTML_to_text_rules",   :limit => 100, :default => "no",                    :null => false
-    t.string "convert_HTML_to_text_rules",             :limit => 100, :default => "no",                    :null => false
-    t.string "filename_allow_rules",                   :limit => 100, :default => "",                      :null => false
-    t.string "filename_deny_rules",                    :limit => 100, :default => "",                      :null => false
-    t.string "filetype_allow_rules",                   :limit => 100, :default => "",                      :null => false
-    t.string "filetype_deny_rules",                    :limit => 100, :default => "",                      :null => false
-    t.string "scanned_modify_subject_rules",           :limit => 100, :default => "no",                    :null => false
-    t.string "scanned_subject_text_rules",             :limit => 100, :default => "{Scanned}",             :null => false
-    t.string "virus_modify_subject_rules",             :limit => 100, :default => "yes",                   :null => false
-    t.string "virus_subject_text_rules",               :limit => 100, :default => "{Virus?}",              :null => false
-    t.string "filename_modify_subject_rules",          :limit => 100, :default => "yes",                   :null => false
-    t.string "filename_subject_text_rules",            :limit => 100, :default => "{Filename?}",           :null => false
-    t.string "content_modify_subject_rules",           :limit => 100, :default => "yes",                   :null => false
-    t.string "content_subject_text_rules",             :limit => 100, :default => "{Blocked Content}",     :null => false
-    t.string "spam_modify_subject_rules",              :limit => 100, :default => "yes",                   :null => false
-    t.string "spam_subject_text_rules",                :limit => 100, :default => "{Spam score: _SCORE_}", :null => false
-    t.string "high_scoring_spam_modify_subject_rules", :limit => 100, :default => "yes",                   :null => false
-    t.string "high_scoring_spam_subject_text_rules",   :limit => 100, :default => "{Spam score: _SCORE_}", :null => false
-    t.string "spam_check_rules",                       :limit => 100, :default => "yes",                   :null => false
-    t.string "use_spamassassin_rules",                 :limit => 100, :default => "yes",                   :null => false
-    t.string "required_spamassassin_score_rules",      :limit => 100, :default => "5",                     :null => false
-    t.string "high_spamassassin_score_rules",          :limit => 100, :default => "15",                    :null => false
-    t.string "spam_actions_rules",                     :limit => 100, :default => "deliver",               :null => false
-    t.string "high_scoring_spam_actions_rules",        :limit => 100, :default => "store deliver",         :null => false
-    t.string "non_spam_actions_rules",                 :limit => 100, :default => "deliver",               :null => false
   end
 
   create_table "moderator", :primary_key => "moderatorid", :force => true do |t|
