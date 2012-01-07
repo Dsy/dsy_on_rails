@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106190406) do
+ActiveRecord::Schema.define(:version => 20120107105140) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -80,33 +80,22 @@ ActiveRecord::Schema.define(:version => 20120106190406) do
   add_index "posts", ["thread_id", "user_id"], :name => "threadid"
   add_index "posts", ["user_id"], :name => "userid"
 
-  create_table "thread", :primary_key => "threadid", :force => true do |t|
-    t.string  "title",        :limit => 100, :default => "", :null => false
-    t.integer "lastpost",                    :default => 0,  :null => false
-    t.integer "forumid",      :limit => 2,   :default => 0,  :null => false
-    t.integer "pollid",                      :default => 0,  :null => false
-    t.integer "articleid",                   :default => 0,  :null => false
-    t.integer "open",         :limit => 1,   :default => 0,  :null => false
-    t.integer "replycount",                  :default => 0,  :null => false
-    t.string  "postusername", :limit => 50,  :default => "", :null => false
-    t.integer "postuserid",                  :default => 0,  :null => false
-    t.string  "lastposter",   :limit => 50,  :default => "", :null => false
-    t.integer "dateline",                    :default => 0,  :null => false
-    t.integer "views",                       :default => 0,  :null => false
-    t.integer "iconid",       :limit => 2,   :default => 0,  :null => false
-    t.string  "notes",        :limit => 250, :default => "", :null => false
-    t.integer "visible",      :limit => 2,   :default => 0,  :null => false
-    t.integer "sticky",       :limit => 2,   :default => 0,  :null => false
-    t.integer "votenum",      :limit => 2,   :default => 0,  :null => false
-    t.integer "votetotal",    :limit => 2,   :default => 0,  :null => false
-    t.integer "attach",       :limit => 2,   :default => 0,  :null => false
-    t.integer "argomento_id"
+  create_table "topics", :force => true do |t|
+    t.string   "title",           :limit => 100, :default => "", :null => false
+    t.integer  "last_post",                      :default => 0,  :null => false
+    t.integer  "forum_id",        :limit => 2,   :default => 0,  :null => false
+    t.integer  "open",            :limit => 1,   :default => 0,  :null => false
+    t.integer  "posts_count",                    :default => 0,  :null => false
+    t.integer  "original_poster",                :default => 0,  :null => false
+    t.string   "last_poster",     :limit => 50,  :default => "", :null => false
+    t.datetime "created_at",                                     :null => false
+    t.integer  "views",                          :default => 0,  :null => false
+    t.integer  "visible",         :limit => 2,   :default => 0,  :null => false
+    t.integer  "sticky",          :limit => 2,   :default => 0,  :null => false
   end
 
-  add_index "thread", ["forumid", "open", "threadid"], :name => "forumid_open_threadid"
-  add_index "thread", ["forumid", "visible", "sticky", "lastpost"], :name => "forumid"
-  add_index "thread", ["iconid"], :name => "iconid"
-  add_index "thread", ["pollid"], :name => "pollid"
+  add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"
+  add_index "topics", ["forum_id", "visible", "sticky", "last_post"], :name => "forumid"
 
   create_table "user", :primary_key => "userid", :force => true do |t|
     t.integer "usergroupid",       :limit => 2,        :default => 0,     :null => false
