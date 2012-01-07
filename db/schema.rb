@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106190249) do
+ActiveRecord::Schema.define(:version => 20120106190406) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -61,29 +61,24 @@ ActiveRecord::Schema.define(:version => 20120106190249) do
     t.datetime "updated_at"
   end
 
-  create_table "post", :primary_key => "postid", :force => true do |t|
-    t.integer "threadid",                          :default => 0,  :null => false
-    t.string  "username",      :limit => 50,       :default => "", :null => false
-    t.integer "userid",                            :default => 0,  :null => false
-    t.string  "title",         :limit => 100,      :default => "", :null => false
-    t.integer "dateline",                          :default => 0,  :null => false
-    t.integer "attachmentid",  :limit => 2,        :default => 0,  :null => false
-    t.text    "pagetext",      :limit => 16777215,                 :null => false
-    t.integer "allowsmilie",   :limit => 2,        :default => 0,  :null => false
-    t.integer "showsignature", :limit => 2,        :default => 0,  :null => false
-    t.string  "ipaddress",     :limit => 16,       :default => "", :null => false
-    t.integer "iconid",        :limit => 2,        :default => 0,  :null => false
-    t.integer "visible",       :limit => 2,        :default => 0,  :null => false
-    t.integer "edituserid",                        :default => 0,  :null => false
-    t.integer "editdate",                          :default => 0,  :null => false
+  create_table "posts", :force => true do |t|
+    t.integer  "thread_id",                         :default => 0,  :null => false
+    t.integer  "user_id",                           :default => 0,  :null => false
+    t.string   "title",         :limit => 100,      :default => "", :null => false
+    t.integer  "created_at",                        :default => 0,  :null => false
+    t.integer  "attachment_id", :limit => 2,        :default => 0,  :null => false
+    t.text     "content",       :limit => 16777215,                 :null => false
+    t.integer  "icon_id",       :limit => 2,        :default => 0,  :null => false
+    t.integer  "visible",       :limit => 2,        :default => 0,  :null => false
+    t.integer  "last_editor",                       :default => 0,  :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
-  add_index "post", ["attachmentid"], :name => "attachmentid"
-  add_index "post", ["dateline"], :name => "dateline"
-  add_index "post", ["iconid"], :name => "iconid"
-  add_index "post", ["ipaddress"], :name => "ipaddress"
-  add_index "post", ["threadid", "userid"], :name => "threadid"
-  add_index "post", ["userid"], :name => "userid"
+  add_index "posts", ["attachment_id"], :name => "attachmentid"
+  add_index "posts", ["created_at"], :name => "dateline"
+  add_index "posts", ["icon_id"], :name => "iconid"
+  add_index "posts", ["thread_id", "user_id"], :name => "threadid"
+  add_index "posts", ["user_id"], :name => "userid"
 
   create_table "thread", :primary_key => "threadid", :force => true do |t|
     t.string  "title",        :limit => 100, :default => "", :null => false
