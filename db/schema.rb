@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107105140) do
+ActiveRecord::Schema.define(:version => 20120107112749) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -97,66 +97,26 @@ ActiveRecord::Schema.define(:version => 20120107105140) do
   add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"
   add_index "topics", ["forum_id", "visible", "sticky", "last_post"], :name => "forumid"
 
-  create_table "user", :primary_key => "userid", :force => true do |t|
-    t.integer "usergroupid",       :limit => 2,        :default => 0,     :null => false
-    t.string  "username",          :limit => 50,       :default => "",    :null => false
-    t.string  "password",          :limit => 50,       :default => "",    :null => false
-    t.string  "email",             :limit => 50,       :default => "",    :null => false
-    t.integer "styleid",           :limit => 2,        :default => 0,     :null => false
-    t.string  "parentemail",       :limit => 50,       :default => "",    :null => false
-    t.integer "coppauser",         :limit => 2,        :default => 0,     :null => false
-    t.string  "homepage",          :limit => 100,      :default => "",    :null => false
-    t.string  "icq",               :limit => 20,       :default => "",    :null => false
-    t.string  "aim",               :limit => 20,       :default => "",    :null => false
-    t.string  "yahoo",             :limit => 20,       :default => "",    :null => false
-    t.text    "signature",         :limit => 16777215,                    :null => false
-    t.integer "adminemail",        :limit => 2,        :default => 0,     :null => false
-    t.integer "showemail",         :limit => 2,        :default => 0,     :null => false
-    t.integer "invisible",         :limit => 2,        :default => 0,     :null => false
-    t.string  "usertitle",         :limit => 250,      :default => "",    :null => false
-    t.integer "customtitle",       :limit => 2,        :default => 0,     :null => false
-    t.integer "joindate",                              :default => 0,     :null => false
-    t.integer "cookieuser",        :limit => 2,        :default => 0,     :null => false
-    t.integer "daysprune",         :limit => 2,        :default => 0,     :null => false
-    t.integer "lastvisit",                             :default => 0,     :null => false
-    t.integer "lastactivity",                          :default => 0,     :null => false
-    t.integer "lastpost",                              :default => 0,     :null => false
-    t.integer "posts",             :limit => 2,        :default => 0,     :null => false
-    t.string  "timezoneoffset",    :limit => 4,        :default => "",    :null => false
-    t.integer "emailnotification", :limit => 2,        :default => 0,     :null => false
-    t.text    "buddylist",         :limit => 16777215,                    :null => false
-    t.text    "ignorelist",        :limit => 16777215,                    :null => false
-    t.text    "pmfolders",         :limit => 16777215,                    :null => false
-    t.integer "receivepm",         :limit => 2,        :default => 0,     :null => false
-    t.integer "emailonpm",         :limit => 2,        :default => 0,     :null => false
-    t.integer "pmpopup",           :limit => 2,        :default => 0,     :null => false
-    t.integer "avatarid",          :limit => 2,        :default => 0,     :null => false
-    t.integer "options",           :limit => 2,        :default => 15,    :null => false
-    t.date    "birthday",                                                 :null => false
-    t.integer "maxposts",          :limit => 2,        :default => -1,    :null => false
-    t.integer "startofweek",       :limit => 2,        :default => 1,     :null => false
-    t.string  "ipaddress",         :limit => 20,       :default => "",    :null => false
-    t.integer "referrerid",                            :default => 0,     :null => false
-    t.integer "nosessionhash",     :limit => 2,        :default => 0,     :null => false
-    t.boolean "hideposts",                             :default => false, :null => false
-    t.integer "inforum",           :limit => 2,        :default => 0,     :null => false
-    t.integer "bmallow",           :limit => 2,        :default => 0,     :null => false
-    t.integer "bmwarn",                                :default => 0,     :null => false
-    t.integer "bmban",                                 :default => 0,     :null => false
-    t.integer "bmreported",                            :default => 0,     :null => false
-    t.string  "rooms",             :limit => 128,      :default => "",    :null => false
-    t.integer "reg_time",                              :default => 0,     :null => false
-    t.boolean "gender",                                :default => false, :null => false
-    t.integer "timeonline",                            :default => 0,     :null => false
-    t.integer "TTL",               :limit => 1,        :default => 0,     :null => false
-    t.integer "journal",           :limit => 2,        :default => 0,     :null => false
-    t.integer "miserable",         :limit => 2,        :default => 0,     :null => false
-    t.string  "lastposts",         :limit => 160,      :default => "",    :null => false
+  create_table "users", :force => true do |t|
+    t.string   "username",    :limit => 50,       :default => "",    :null => false
+    t.string   "password",    :limit => 50,       :default => "",    :null => false
+    t.string   "email",       :limit => 50,       :default => "",    :null => false
+    t.string   "homepage",    :limit => 100,      :default => "",    :null => false
+    t.string   "icq",         :limit => 20,       :default => "",    :null => false
+    t.string   "aim",         :limit => 20,       :default => "",    :null => false
+    t.string   "yahoo",       :limit => 20,       :default => "",    :null => false
+    t.text     "signature",   :limit => 16777215,                    :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "last_visit",                                         :null => false
+    t.integer  "lastpost",                        :default => 0,     :null => false
+    t.integer  "posts_count", :limit => 2,        :default => 0,     :null => false
+    t.integer  "avatar_id",   :limit => 2,        :default => 0,     :null => false
+    t.date     "birthday",                                           :null => false
+    t.boolean  "gender",                          :default => false, :null => false
+    t.integer  "time_online",                     :default => 0,     :null => false
+    t.datetime "update_at"
   end
 
-  add_index "user", ["inforum"], :name => "inforum"
-  add_index "user", ["referrerid"], :name => "referrerid"
-  add_index "user", ["usergroupid"], :name => "usergroupid"
-  add_index "user", ["username"], :name => "username"
+  add_index "users", ["username"], :name => "username"
 
 end
