@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108121042) do
+ActiveRecord::Schema.define(:version => 20120108121520) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20120108121042) do
     t.integer  "views",                          :default => 0,  :null => false
     t.integer  "visible",         :limit => 2,   :default => 0,  :null => false
     t.integer  "sticky",          :limit => 2,   :default => 0,  :null => false
+    t.datetime "updated_at"
   end
 
   add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"
