@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108121520) do
+ActiveRecord::Schema.define(:version => 20120108121807) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -101,23 +101,24 @@ ActiveRecord::Schema.define(:version => 20120108121520) do
   add_index "topics", ["forum_id", "visible", "sticky", "last_post"], :name => "forumid"
 
   create_table "users", :force => true do |t|
-    t.string   "username",    :limit => 50,       :default => "",    :null => false
-    t.string   "password",    :limit => 50,       :default => "",    :null => false
-    t.string   "email",       :limit => 50,       :default => "",    :null => false
-    t.string   "homepage",    :limit => 100,      :default => "",    :null => false
-    t.string   "icq",         :limit => 20,       :default => "",    :null => false
-    t.string   "aim",         :limit => 20,       :default => "",    :null => false
-    t.string   "yahoo",       :limit => 20,       :default => "",    :null => false
-    t.text     "signature",   :limit => 16777215,                    :null => false
-    t.datetime "created_at",                                         :null => false
-    t.datetime "last_visit",                                         :null => false
-    t.integer  "lastpost",                        :default => 0,     :null => false
-    t.integer  "posts_count", :limit => 2,        :default => 0,     :null => false
-    t.integer  "avatar_id",   :limit => 2,        :default => 0,     :null => false
-    t.date     "birthday",                                           :null => false
-    t.boolean  "gender",                          :default => false, :null => false
-    t.integer  "time_online",                     :default => 0,     :null => false
+    t.string   "username",     :limit => 50,       :default => "",    :null => false
+    t.string   "password",     :limit => 50,       :default => "",    :null => false
+    t.string   "email",        :limit => 50,       :default => "",    :null => false
+    t.string   "homepage",     :limit => 100,      :default => "",    :null => false
+    t.string   "icq",          :limit => 20,       :default => "",    :null => false
+    t.string   "aim",          :limit => 20,       :default => "",    :null => false
+    t.string   "yahoo",        :limit => 20,       :default => "",    :null => false
+    t.text     "signature",    :limit => 16777215,                    :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "last_visit",                                          :null => false
+    t.integer  "lastpost",                         :default => 0,     :null => false
+    t.integer  "posts_count",  :limit => 2,        :default => 0,     :null => false
+    t.integer  "avatar_id",    :limit => 2,        :default => 0,     :null => false
+    t.date     "birthday",                                            :null => false
+    t.boolean  "gender",                           :default => false, :null => false
+    t.integer  "time_online",                      :default => 0,     :null => false
     t.datetime "update_at"
+    t.integer  "topics_count",                     :default => 0,     :null => false
   end
 
   add_index "users", ["username"], :name => "username"
