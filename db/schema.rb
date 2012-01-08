@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107112749) do
+ActiveRecord::Schema.define(:version => 20120108121042) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -33,17 +33,19 @@ ActiveRecord::Schema.define(:version => 20120107112749) do
   end
 
   create_table "forums", :force => true do |t|
-    t.string  "name",                :limit => 100, :default => "", :null => false
-    t.string  "description",         :limit => 250, :default => "", :null => false
-    t.integer "active",              :limit => 2,   :default => 0,  :null => false
-    t.integer "rank",                :limit => 2,   :default => 0,  :null => false
-    t.integer "posts_count",                        :default => 0,  :null => false
-    t.integer "last_post",                          :default => 0,  :null => false
-    t.string  "last_poster",         :limit => 50,  :default => "", :null => false
-    t.integer "threads_count",       :limit => 3,   :default => 0,  :null => false
-    t.integer "allow_posting",       :limit => 1,   :default => 0,  :null => false
-    t.integer "can_contain_threads", :limit => 2,   :default => 0,  :null => false
-    t.integer "parent_id",           :limit => 2,   :default => 0,  :null => false
+    t.string   "name",                :limit => 100, :default => "", :null => false
+    t.string   "description",         :limit => 250, :default => "", :null => false
+    t.integer  "active",              :limit => 2,   :default => 0,  :null => false
+    t.integer  "rank",                :limit => 2,   :default => 0,  :null => false
+    t.integer  "posts_count",                        :default => 0,  :null => false
+    t.integer  "last_post",                          :default => 0,  :null => false
+    t.string   "last_poster",         :limit => 50,  :default => "", :null => false
+    t.integer  "threads_count",       :limit => 3,   :default => 0,  :null => false
+    t.integer  "allow_posting",       :limit => 1,   :default => 0,  :null => false
+    t.integer  "can_contain_threads", :limit => 2,   :default => 0,  :null => false
+    t.integer  "parent_id",           :limit => 2,   :default => 0,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|
