@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108121807) do
+ActiveRecord::Schema.define(:version => 20120108122050) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(:version => 20120108121807) do
   end
 
   create_table "forums", :force => true do |t|
-    t.string   "name",                :limit => 100, :default => "", :null => false
-    t.string   "description",         :limit => 250, :default => "", :null => false
-    t.integer  "active",              :limit => 2,   :default => 0,  :null => false
-    t.integer  "rank",                :limit => 2,   :default => 0,  :null => false
-    t.integer  "posts_count",                        :default => 0,  :null => false
-    t.integer  "last_post",                          :default => 0,  :null => false
-    t.string   "last_poster",         :limit => 50,  :default => "", :null => false
-    t.integer  "threads_count",       :limit => 3,   :default => 0,  :null => false
-    t.integer  "allow_posting",       :limit => 1,   :default => 0,  :null => false
-    t.integer  "can_contain_threads", :limit => 2,   :default => 0,  :null => false
-    t.integer  "parent_id",           :limit => 2,   :default => 0,  :null => false
+    t.string   "name",               :limit => 100, :default => "", :null => false
+    t.string   "description",        :limit => 250, :default => "", :null => false
+    t.integer  "active",             :limit => 2,   :default => 0,  :null => false
+    t.integer  "rank",               :limit => 2,   :default => 0,  :null => false
+    t.integer  "posts_count",                       :default => 0,  :null => false
+    t.integer  "last_post",                         :default => 0,  :null => false
+    t.string   "last_poster",        :limit => 50,  :default => "", :null => false
+    t.integer  "topics_count",       :limit => 3,   :default => 0,  :null => false
+    t.integer  "allow_posting",      :limit => 1,   :default => 0,  :null => false
+    t.integer  "can_contain_topics", :limit => 2,   :default => 0,  :null => false
+    t.integer  "parent_id",          :limit => 2,   :default => 0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20120108121807) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "thread_id",                         :default => 0,  :null => false
+    t.integer  "topic_id",                          :default => 0,  :null => false
     t.integer  "user_id",                           :default => 0,  :null => false
     t.string   "title",         :limit => 100,      :default => "", :null => false
     t.integer  "created_at",                        :default => 0,  :null => false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20120108121807) do
   add_index "posts", ["attachment_id"], :name => "attachmentid"
   add_index "posts", ["created_at"], :name => "dateline"
   add_index "posts", ["icon_id"], :name => "iconid"
-  add_index "posts", ["thread_id", "user_id"], :name => "threadid"
+  add_index "posts", ["topic_id", "user_id"], :name => "threadid"
   add_index "posts", ["user_id"], :name => "userid"
 
   create_table "topics", :force => true do |t|
