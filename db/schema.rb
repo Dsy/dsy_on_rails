@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108122050) do
+ActiveRecord::Schema.define(:version => 20120109191402) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
-    t.integer  "created_at",                     :default => 0,  :null => false
+    t.datetime "created_at",                                     :null => false
     t.string   "filename",   :limit => 100,      :default => "", :null => false
     t.text     "filedata",   :limit => 16777215,                 :null => false
     t.integer  "visible",    :limit => 2,        :default => 0,  :null => false
@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(:version => 20120108122050) do
     t.datetime "updated_at"
   end
 
-  add_index "attachments", ["counter"], :name => "counter"
-
   create_table "avatars", :primary_key => "user_id", :force => true do |t|
     t.text     "data",       :limit => 16777215,                 :null => false
-    t.integer  "created_at",                     :default => 0,  :null => false
+    t.datetime "created_at",                                     :null => false
     t.string   "filename",   :limit => 100,      :default => "", :null => false
     t.datetime "updated_at"
   end
@@ -49,10 +47,10 @@ ActiveRecord::Schema.define(:version => 20120108122050) do
   end
 
   create_table "people", :force => true do |t|
-    t.string    "name",       :limit => 50, :default => "", :null => false
-    t.string    "surname",    :limit => 50, :default => "", :null => false
-    t.timestamp "created_at",                               :null => false
-    t.datetime  "updated_at"
+    t.string   "name",       :limit => 50, :default => "", :null => false
+    t.string   "surname",    :limit => 50, :default => "", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at"
   end
 
   create_table "people_attributes", :id => false, :force => true do |t|
@@ -67,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20120108122050) do
     t.integer  "topic_id",                          :default => 0,  :null => false
     t.integer  "user_id",                           :default => 0,  :null => false
     t.string   "title",         :limit => 100,      :default => "", :null => false
-    t.integer  "created_at",                        :default => 0,  :null => false
+    t.datetime "created_at",                                        :null => false
     t.integer  "attachment_id", :limit => 2,        :default => 0,  :null => false
     t.text     "content",       :limit => 16777215,                 :null => false
     t.integer  "icon_id",       :limit => 2,        :default => 0,  :null => false
