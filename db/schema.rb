@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109191402) do
+ActiveRecord::Schema.define(:version => 20120109212943) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "user_id",                        :default => 0,  :null => false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20120109191402) do
     t.integer  "active",             :limit => 2,   :default => 0,  :null => false
     t.integer  "rank",               :limit => 2,   :default => 0,  :null => false
     t.integer  "posts_count",                       :default => 0,  :null => false
-    t.integer  "last_post",                         :default => 0,  :null => false
+    t.datetime "last_post",                                         :null => false
     t.string   "last_poster",        :limit => 50,  :default => "", :null => false
     t.integer  "topics_count",       :limit => 3,   :default => 0,  :null => false
     t.integer  "allow_posting",      :limit => 1,   :default => 0,  :null => false
