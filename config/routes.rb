@@ -4,7 +4,7 @@ DsyOnRails::Application.routes.draw do
   resources :posts
   resources :users
 
-  #root :to => 'forums#index'
+  root :to => 'forums#index'
   #resources :users do
       #get 'page/:page', :action => :index, :on => :collection
   #end

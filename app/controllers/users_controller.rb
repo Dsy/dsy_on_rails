@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.get params[:id]
+    @user = User.find params[:id]
     if @user.nil?
       redirect_to :action => :index, :alert => 'The user you specified was not found!'
     end

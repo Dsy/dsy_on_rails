@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   respond_to :html
 
   def show
-    @topic = Topic.get params[:id]
+    @topic = Topic.find params[:id]
     if @topic.nil?
       redirect_to :action => :index, :alert => 'The topic you specified was not found!'
     end

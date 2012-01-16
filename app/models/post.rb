@@ -1,21 +1,4 @@
-class Post
-  include DataMapper::Resource
-
-  storage_names[:default] = 'post'
-
-  property :id,          Serial,    :field => 'postid'
-  #property :poster,      String,    :field => 'username'
-  property :user_id,   Integer,    :field => 'userid'
-  property :title,       String
-  property :visible,    Boolean
-#  property :sticky,      Boolean
-  #property :replies_nr,  Integer,   :field => 'replycount'
-  #property :last_post,   EpochTime, :field => 'lastpost'
-  #property :views_nr,    Integer,   :field => 'views'
-  #property :open,        Boolean
-  property :dateline,    EpochTime, :field => 'dateline'
-  property :text,        Text,      :field => 'pagetext'
-  property :topic_id,    Integer,   :field => 'threadid'
+class Post < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :topic
@@ -25,7 +8,7 @@ class Post
   #end
 
   def self.by_dateline
-    all(:order => [:dateline.asc])
+    order 'created_at ASC'
   end
 
 #  def parent

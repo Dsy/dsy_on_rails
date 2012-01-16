@@ -1,9 +1,9 @@
 %ul.post_data{:id => "post_#{@post.id}_data"}
   %li.id=        @post.id
-  %li.user_id=   @post.user_id
-  %li.dateline=  @post.dateline
-  %li.text=      @post.text
-  %li.topic_id=  @post.topic_id
+  %li.user=      link_to @post.user.username, @post.user
+  %li.dateline=  @post.created_at
+  %li.text=      @post.content
+  %li.topic_id=  link_to @post.topic.title, @post.topic
 
 = link_to :back
 = url_for :back

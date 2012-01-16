@@ -1,19 +1,20 @@
 %ul.topic_data{:id => "topic_#{@topic.id}_data"}
+  %li.forum=       link_to @topic.forum.name, @topic.forum
   %li.id=          @topic.id
   %li.title=       @topic.title
   %li.sticky=      @topic.sticky
-  %li.replies_nr=  @topic.replies_nr
+  %li.replies_nr=  @topic.posts_count
   %li.last_post=   @topic.last_post
-  %li.user_idr=    @topic.last_poster
-  %li.views_nr=    @topic.views_nr
+  %li.user_idr=    link_to @topic.last_poster.username, @topic.last_poster if @topic.last_poster
+  %li.views_nr=    @topic.views
   %li.open=        @topic.open
-  %li.dateline=    @topic.dateline
+  %li.dateline=    @topic.created_at
 %ul
   - @posts.each do |post|
     %li
       %article{:id => "post_#{post.id}_data"}
         = link_to post.title, post
-        .post= post.text
+        .post= post.content
 
 = link_to :back
 = url_for :back

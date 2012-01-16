@@ -1,30 +1,31 @@
-class Topic
-  include DataMapper::Resource
+class Topic < ActiveRecord::Base
 
-  storage_names[:default] = 'thread'
-
-  property :id,          Serial,    :field => 'threadid'
-  property :title,       String
-  #property :visible,    Boolean
-  property :sticky,      Boolean
-  property :replies_nr,  Integer,   :field => 'replycount'
-  property :last_post,   EpochTime, :field => 'lastpost'
-  property :last_poster, Integer,   :field => 'postuserid'
-  property :views_nr,    Integer,   :field => 'views'
-  property :open,        Boolean
-  property :dateline,    EpochTime, :field => 'dateline'
-  property :forum_id,    Integer,   :field => 'forumid'
-
-  belongs_to :user, 'User', :child_key => [ :last_poster ]
   belongs_to :forum
-  has n, :posts
+  has_many :posts
 
   #def self.active
     #all(:active => true)
   #end
 
   def self.by_dateline
-    all(:order => [:dateline.desc])
+    #FIXME
+    order 'id DESC'
+  end
+
+  def last_post
+    posts.order('created_at DESC').first
+  end
+
+  def last_poster
+    last_post.user if last_post
+  end
+
+  def first_post
+    posts.order('created_at ASC').first
+  end
+
+  def created_at
+    first_post.created_at if first_post
   end
 
 #  def parent

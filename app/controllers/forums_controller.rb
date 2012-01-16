@@ -4,22 +4,22 @@ class ForumsController < ApplicationController
   respond_to :html
 
   def index
-    top_level_forums = Forum.active.top_level.by_position
+    top_level_forums = Forum.active.top_level.by_rank
     @forums = {}
     top_level_forums.each do |f|
-      @forums[f] = f.children.active.by_position
+      @forums[f] = f.children.active.by_rank
     end
     respond_with @forums
   end
 
   def show
-    @forum = Forum.get params[:id]
+    @forum = Forum.find params[:id]
     @page_title = '.dsy:it. - ' + @forum.name
-    @forums_breadcrumb = @forum.parent_chain.reverse
+    @forums_breadcrumb = @forum.parent_chain.reverse if @forum.parent_chain
     if @forum.nil?
       redirect_to :action => :index, :alert => 'The forum you specified was not found!'
     end
-    @children_forums = @forum.children.active.by_position
+    @children_forums = @forum.children.active.by_rank
 
     params[:page] ||= 1
     @threads = @forum.topics.by_dateline.page params[:page]

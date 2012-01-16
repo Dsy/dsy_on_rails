@@ -1,31 +1,6 @@
-class User
-  include DataMapper::Resource
+class User < ActiveRecord::Base
 
-  storage_names[:default] = 'user'
-
-  property :id,            Serial,    :field => 'userid'
-  property :group_id,      Integer,   :field => 'usergroupid'
-  property :username,      String
-  property :password,      String
-  property :email,         String
-  property :homepage,      String
-  property :icq,           String
-  property :aim,           String
-  property :yahoo,         String
-  property :signature,     Text
-  property :user_title,    String,    :field => 'usertitle'
-  property :custom_title,  String,    :field => 'customtitle'
-  property :join_date,     EpochTime, :field => 'joindate'
-  property :last_visit,    EpochTime, :field => 'lastvisit'
-  property :last_activity, EpochTime, :field => 'lastactivity'
-  property :last_post,     EpochTime, :field => 'joindate'
-  property :posts_nr,      Integer,   :field => 'posts'
- #property :birthday,      Date
-  property :gender,        String
-  property :time_online,   Integer,   :field => 'timeonline'
-
-  has n, :topics, 'Topic', :child_key => [ :last_poster ]
-  has n, :posts , 'Post'
+  has_many :posts
 
   #def self.active
     #all(:active => true)

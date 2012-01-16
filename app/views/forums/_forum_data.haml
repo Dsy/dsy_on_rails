@@ -2,9 +2,9 @@
   .forum_main_data
     .forum_name= link_to forum.name, forum
     .forum_description!= forum.description
-  .forum_threads_nr= forum.threads_nr
-  .forum_replies_nr= forum.replies_nr
+  .forum_threads_nr= forum.topics_count
+  .forum_replies_nr= forum.posts_count
   .forum_last_post_data
-    .forum_last_post_date= "on #{forum.last_post}"
-    .forum_last_poster= link_to(forum.last_poster_user.username, forum.last_poster_user) if forum.last_poster_user
+    .forum_last_post_date= "on #{forum.last_post.created_at}" if forum.last_post
+    .forum_last_poster= link_to(forum.last_poster.username, forum.last_poster) if forum.last_poster
     -#.forum_last_poster= link_to forum.last_poster, forum.last_poster_user

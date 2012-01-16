@@ -1,44 +1,28 @@
-class Forum
-  include DataMapper::Resource
+class Forum < ActiveRecord::Base
+  has_many :topics
+  has_many :posts, :through => :topics
 
-  storage_names[:default] = 'forum'
-
-  property :id,          Serial,    :field => 'forumid'
-  property :name,        String,    :field => 'title'
-  property :description, String
-  property :active,      Boolean
-  property :position,    Integer,   :field => 'displayorder'
-  property :replies_nr,  Integer,   :field => 'replycount'
-  property :last_post,   EpochTime, :field => 'lastpost'
-  property :last_poster, String,    :field => 'lastposter'
-  property :threads_nr,  Integer,   :field => 'threadcount'
-  property :open,        Boolean,   :field => 'allowposting'
-  property :parent_id,   Integer,   :field => 'parentid'
-  property :parent_list, String,    :field => 'parentlist'
-
-  has n, :topics
-
-  has n, :forums, 'Forum', :child_key => [ :parent_id ]
-  belongs_to :forum, 'Forum', :child_key => [ :parent_id ]
+  has_many :children_forums, :class_name => 'Forum', :foreign_key => :parent_id
+  belongs_to :parent_forum, :class_name => 'Forum', :foreign_key => :parent_id
 
   def self.active
-    all(:active => true)
+    where active: true
   end
 
-  def self.by_position
-    all(:order => [:position.asc])
+  def self.by_rank
+    order "rank ASC"
   end
 
   def parent
-    Forum.get(@parent_id)
+    parent_forum
   end
 
   def children
-    Forum.all(:parent_id => @id)
+    children_forums
   end
 
   def self.top_level
-    Forum.all(:parent_id => -1)
+    where parent_id: -1
   end
 
   def last_post_date
@@ -49,11 +33,8 @@ class Forum
     last_post.to_s :time
   end
 
-  def last_poster_user
-    User.first :username => self.last_poster
-  end
-
   def parent_chain
+    return if parent_id == -1
     parent_chain = []
     current = self.parent
     begin
@@ -61,5 +42,19 @@ class Forum
       current = current.parent
     end while current
     parent_chain
+  end
+
+  def posts_count
+    posts_count = posts.count
+    children_forums.collect {|c| posts_count += c.posts.count}
+    posts_count
+  end
+
+  def last_post
+    posts.order('created_at DESC').first
+  end
+
+  def last_poster
+    last_post.user if last_post
   end
 end

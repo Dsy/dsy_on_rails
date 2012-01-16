@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.get params[:id]
+    @post = Post.find params[:id]
     if @post.nil?
       redirect_to :action => :index, :alert => 'The post you specified was not found!'
     end

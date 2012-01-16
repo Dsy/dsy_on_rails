@@ -1,6 +1,4 @@
 require 'rubygems'
-require 'data_mapper'
-#require 'haml'
 
 # Set up gems listed in the Gemfile.
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
