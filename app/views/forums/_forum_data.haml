@@ -1,7 +1,7 @@
 %li.forum_data
   .forum_main_data
     .forum_name= link_to forum.name, forum
-    .forum_description!= forum.description
+    .forum_description= sanitize(forum.description)
   .forum_threads_nr= forum.topics_count
   .forum_replies_nr= forum.posts_count
   .forum_last_post_data
