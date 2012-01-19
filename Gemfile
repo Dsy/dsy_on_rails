@@ -36,7 +36,7 @@ gem 'haml-rails'
 gem 'mysql2'
 
 #gem 'devise'
-#gem 'therubyracer'
+gem 'therubyracer'
 #gem 'interactive_editor'
 #gem 'tzinfo'
 #gem 'activeadmin'
