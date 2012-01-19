@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
 
   belongs_to :forum
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   #def self.active
     #all(:active => true)
@@ -14,6 +14,10 @@ class Topic < ActiveRecord::Base
 
   def last_post
     posts.order('created_at DESC').first
+  end
+
+  def last_update
+    last_post.created_at
   end
 
   def last_poster

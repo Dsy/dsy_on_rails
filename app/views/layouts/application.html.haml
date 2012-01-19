@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= @page_title
+    %title= @page_title || '.dsy:it.'
     = stylesheet_link_tag    :application
     = javascript_include_tag :application
     = csrf_meta_tags

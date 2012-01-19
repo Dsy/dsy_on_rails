@@ -7,10 +7,9 @@
 %ul
   = render :partial => "forum_data_header"
   = render :partial => "forum_data", :collection => @children_forums, :as => :forum
-  - @threads.each do |thread|
-    %li= link_to thread.title, thread
+  = render @topics
 
 -##paginator= paginate @threads, :remote => true
-#paginator= paginate @threads
+#paginator= paginate @topics
 = link_to :back
 = url_for :back

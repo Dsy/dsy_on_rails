@@ -1,20 +1,34 @@
 %ul.topic_data{:id => "topic_#{@topic.id}_data"}
-  %li.forum=       link_to @topic.forum.name, @topic.forum
-  %li.id=          @topic.id
-  %li.title=       @topic.title
-  %li.sticky=      @topic.sticky
-  %li.replies_nr=  @topic.posts_count
-  %li.last_post=   @topic.last_post
-  %li.user_idr=    link_to @topic.last_poster.username, @topic.last_poster if @topic.last_poster
-  %li.views_nr=    @topic.views
-  %li.open=        @topic.open
-  %li.dateline=    @topic.created_at
+  %li.forum
+    nome del forum:
+    =link_to @topic.forum.name, @topic.forum
+  -#%li.id=          @topic.id
+  %li.title
+    titolo del topic:
+    = @topic.title
+  %li.sticky
+    sticky?
+    = @topic.sticky
+  %li.replies_nr
+    numero di posts:
+    =  @topic.posts_count
+  %li.last_post
+    data dell'ultimo post:
+    =   @topic.last_update
+  %li.user_id
+    ultimo utente che ha postato:
+    =    link_to @topic.last_poster.username, @topic.last_poster if @topic.last_poster
+  %li.views_nr
+    numero di visite:
+    =    @topic.views
+  %li.open
+    aperto?
+    =        @topic.open
+  %li.dateline
+    creato in data:
+    =    @topic.created_at
 %ul
-  - @posts.each do |post|
-    %li
-      %article{:id => "post_#{post.id}_data"}
-        = link_to post.title, post
-        .post= post.content
+  = render @posts
 
 = link_to :back
 = url_for :back

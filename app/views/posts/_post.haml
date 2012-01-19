@@ -1,0 +1,20 @@
+%li
+  %article{:id => "post_#{post.id}_data"}
+    %ul
+      %li
+        = link_to post.title, post if post.title
+      %li
+        autore:
+        = link_to post.user.username, post.user
+      %li
+        creato in data
+        =post.created_at
+      %li
+        aggiornato in data
+        =post.updated_at
+      %li
+        visibile?
+        =post.visible
+      %li
+        contenuto
+        .post= post.content
