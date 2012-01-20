@@ -1,9 +1,4 @@
-%ul#breadcrumb
-  = link_to( "Dsy.it forums", forums_path) + " >"
-  -if @forums_breadcrumb
-    - @forums_breadcrumb.each do |forum|
-      %li= link_to(forum.name, forum) + " >"
-  %li= @forum.name
+#breadcrumbs= breadcrumbs
 %ul
   = render :partial => "forum_data_header"
   = render :partial => "forum_data", :collection => @children_forums, :as => :forum

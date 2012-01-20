@@ -54,14 +54,12 @@ nav#menu {
   }
 }
 
-ul#breadcrumb, ul#breadcrumb li {
-    display: inline;
+#breadcrumbs {
     a {
       font-family: verdana, arial, helvetica;
       font-weight: 700;
       color: #0c4e18;
     }
-
 }
 /*
  *#banner {

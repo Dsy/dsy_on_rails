@@ -34,7 +34,7 @@ class Forum < ActiveRecord::Base
   end
 
   def parent_chain
-    return if parent_id == -1
+    return [] if parent_id == -1
     parent_chain = []
     current = self.parent
     begin
