@@ -1,7 +1,7 @@
 %ul
-  - @forums.keys.each do |top_level_forum|
-    %li.top_level_forum_data
-      = link_to top_level_forum.name, top_level_forum
+  - @forums.each do |forum|
+    %li.forum
+      = link_to forum.name, forum
       %ul
         = render :partial => "forum_data_header"
-        = render :partial => "forum_data", :collection => @forums[top_level_forum], :as => :forum
+        = render :partial => "forum_data", :collection => forum.children.active.by_rank, :as => :forum

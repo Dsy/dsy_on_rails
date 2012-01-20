@@ -1,10 +1,10 @@
 #breadcrumbs= breadcrumbs
 %ul
   = render :partial => "forum_data_header"
-  = render :partial => "forum_data", :collection => @children_forums, :as => :forum
+  = render :partial => "forum_data", :collection => @forum.children.active.by_rank, :as => :forum
   = render @topics
 
 -##paginator= paginate @threads, :remote => true
 #paginator= paginate @topics
-= link_to :back
-= url_for :back
+-#= link_to :back
+-#= url_for :back
