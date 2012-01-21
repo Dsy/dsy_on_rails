@@ -10,13 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: mysql2
-  #encoding: utf8
-  encoding: UTF-8
+  encoding: UTF8
   reconnect: false
   database: dsy_development
   pool: 5
-  username:
-  password:
+  username: dsy
+  password: dsy
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,8 +27,8 @@ test:
   reconnect: false
   database: dsy_test
   pool: 5
-  username:
-  password:
+  username: dsy
+  password: dsy
   socket: /var/run/mysqld/mysqld.sock
 
 production:

@@ -7,3 +7,4 @@ tmp/
 config/unicorn.rb
 config/database.yml
 Capfile
+.vagrant
