@@ -13,7 +13,7 @@ end
 
 
 # Use unicorn as the web server
-gem 'unicorn'
+gem 'unicorn', :platforms => :ruby
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
@@ -36,7 +36,7 @@ gem 'haml-rails'
 gem 'mysql2'
 
 #gem 'devise'
-gem 'therubyracer'
+gem 'therubyracer', :platforms => :ruby
 #gem 'interactive_editor'
 #gem 'tzinfo'
 #gem 'activeadmin'
