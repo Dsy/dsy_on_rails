@@ -14,6 +14,11 @@ fi
 
 if [[ ! -e  config/database.yml ]]; then
     cp config/database.yml.dist config/database.yml
+    echo "Loading db schema..."
     rake db:schema:load
+    echo "Done."
+    echo "Loading fixtures..."
     rake db:fixtures:load
+    echo "Done."
+    echo "Visit http://localhost:3000 and have fun!"
 fi
