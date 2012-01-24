@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :posts, :as => :author
+  has_many :posts
 
   #def self.active
     #all(:active => true)
