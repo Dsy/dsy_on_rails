@@ -14,11 +14,8 @@ fi
 
 if [[ ! -e  config/database.yml ]]; then
     cp config/database.yml.dist config/database.yml
-    echo "Loading db schema..."
-    rake db:schema:load
-    echo "Done."
-    echo "Loading fixtures..."
-    rake db:fixtures:load
+    echo "Importing sample data in the development db..."
+    mysql -udsy -pdsy dsy_development < db/dump_dsy_development.sql
     echo "Done."
     echo "Visit http://localhost:3000 and have fun!"
 fi
