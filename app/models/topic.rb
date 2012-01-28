@@ -1,19 +1,13 @@
 class Topic < ActiveRecord::Base
 
-  belongs_to :forum, counter_cache: true
+  belongs_to :forum
+  belongs_to :last_post, class_name: 'Post', foreign_key: :last_post_id
+  belongs_to :starter, class_name: 'User', foreign_key: :starter_id
   has_many :posts, dependent: :destroy
-
-  #def self.active
-    #all(:active => true)
-  #end
 
   def self.by_dateline
     #FIXME
     order 'id DESC'
-  end
-
-  def last_post
-    posts.order('created_at DESC').first
   end
 
   def last_update
@@ -24,25 +18,9 @@ class Topic < ActiveRecord::Base
     last_post.user if last_post
   end
 
-  def first_post
-    posts.order('created_at ASC').first
-  end
-
   def created_at
     first_post.created_at if first_post
   end
-
-#  def parent
-    #Forum.get(@parent_id)
-  #end
-
-  #def children
-    #Forum.all(:parent_id => @id)
-  #end
-
-  #def self.top_level
-    #Forum.all(:parent_id => -1)
-  #end
 
   def last_post_date
     last_post.to_date.to_s :long

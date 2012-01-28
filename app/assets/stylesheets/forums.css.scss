@@ -106,7 +106,7 @@ section#main_content {
       color: #639374;
     }
   }
-  li.forum_data {
+  li.forum_data, li.topic_data {
     background-color: #F1F5F1;
     padding-left: 10px;
     overflow: hidden;
@@ -117,7 +117,7 @@ section#main_content {
       float: left;
       font-size: 10px;
     }
-    div.forum_main_data {
+    div.forum_main_data, div.topic_main_data {
       width: 60%;
     }
     div.forum_name {
@@ -129,7 +129,7 @@ section#main_content {
     div.forum_name, div.forum_last_post_date, div.forum_last_post_time, div.forum_last_poster {
       float: none;
     }
-    div.forum_threads_nr, div.forum_replies_nr, div.forum_last_post_data {
+    div.forum_threads_nr, div.forum_replies_nr, div.forum_last_post_data, div.topic_first_poster, div.topic_posts_count, div.topic_views, div.topic_last_post_data  {
       padding: 5px;
       float: right;
       width: 10em;

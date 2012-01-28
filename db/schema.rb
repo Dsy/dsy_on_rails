@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120128003212) do
 
   create_table "forums", :force => true do |t|
     t.string   "name",               :limit => 100, :default => "", :null => false
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer  "parent_id",          :limit => 2,   :default => 0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_post_id"
+    t.integer  "posts_count"
   end
 
   create_table "posts", :force => true do |t|
@@ -41,13 +43,15 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "posts", ["user_id"], :name => "userid"
 
   create_table "topics", :force => true do |t|
-    t.string  "title",       :limit => 100, :default => "", :null => false
-    t.integer "forum_id",    :limit => 2,   :default => 0,  :null => false
-    t.integer "open",        :limit => 1,   :default => 0,  :null => false
-    t.integer "posts_count",                :default => 0,  :null => false
-    t.integer "views",                      :default => 0,  :null => false
-    t.integer "visible",     :limit => 2,   :default => 0,  :null => false
-    t.integer "sticky",      :limit => 2,   :default => 0,  :null => false
+    t.string  "title",        :limit => 100, :default => "", :null => false
+    t.integer "forum_id",     :limit => 2,   :default => 0,  :null => false
+    t.integer "open",         :limit => 1,   :default => 0,  :null => false
+    t.integer "posts_count",                 :default => 0,  :null => false
+    t.integer "views",                       :default => 0,  :null => false
+    t.integer "visible",      :limit => 2,   :default => 0,  :null => false
+    t.integer "sticky",       :limit => 2,   :default => 0,  :null => false
+    t.integer "last_post_id"
+    t.integer "starter_id"
   end
 
   add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"

@@ -1,3 +1,9 @@
-%li
-  topic:
-  = link_to topic.title, topic
+%li.topic_data
+  .topic_main_data
+    .topic_title= link_to topic.title, topic
+  .topic_first_poster= link_to topic.starter.username, topic.starter if topic.starter
+  .topic_posts_count= topic.posts_count
+  .topic_views= topic.views
+  .topic_last_post_data
+    .topic_last_post_date= "on #{topic.last_post.created_at}" if topic.last_post
+    .topic_last_poster= link_to(topic.last_poster.username, topic.last_poster) if topic.last_poster

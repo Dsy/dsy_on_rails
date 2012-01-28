@@ -1,9 +1,9 @@
 class Forum < ActiveRecord::Base
   has_many :topics
-  has_many :posts, :through => :topics
-
-  has_many :children_forums, :class_name => 'Forum', :foreign_key => :parent_id
-  belongs_to :parent_forum, :class_name => 'Forum', :foreign_key => :parent_id
+  has_many :posts, through: :topics
+  belongs_to :last_post, class_name: 'Post', foreign_key: :last_post_id
+  has_many :children_forums, class_name: 'Forum', foreign_key: :parent_id
+  belongs_to :parent_forum,  class_name: 'Forum', foreign_key: :parent_id
 
   def self.active
     where active: true
@@ -42,16 +42,6 @@ class Forum < ActiveRecord::Base
       current = current.parent
     end while current
     parent_chain
-  end
-
-  def posts_count
-    posts_count = posts.count
-    children_forums.collect {|c| posts_count += c.posts.count}
-    posts_count
-  end
-
-  def last_post
-    posts.order('created_at DESC').first
   end
 
   def last_poster

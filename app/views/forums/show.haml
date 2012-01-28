@@ -1,7 +1,9 @@
 #breadcrumbs= breadcrumbs
 %ul
-  = render :partial => "forum_data_header"
+  = render :partial => "forum_data_header" if not @forum.children.active.empty?
   = render :partial => "forum_data", :collection => @forum.children.active.by_rank, :as => :forum
+
+  = render :partial => "topics_header" if @topics
   = render @topics
 
 -##paginator= paginate @threads, :remote => true
