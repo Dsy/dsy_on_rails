@@ -1,6 +1,6 @@
 %ul.post_data{:id => "post_#{@post.id}_data"}
   %li.id=        @post.id
-  %li.user=      link_to @post.user.username, @post.user
+  %li.user=      link_to @post.user.username, @post.user if @post.user
   %li.dateline=  @post.created_at
   %li.text=      @post.content
   %li.topic_id=  link_to @post.topic.title, @post.topic

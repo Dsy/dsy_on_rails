@@ -5,7 +5,7 @@
         = link_to post.title, post if post.title
       %li
         autore:
-        = link_to post.user.username, post.user
+        = link_to post.user.username, post.user if post.user
       %li
         creato in data
         =post.created_at
