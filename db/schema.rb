@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128003212) do
+ActiveRecord::Schema.define(:version => 20120129123936) do
 
   create_table "forums", :force => true do |t|
     t.string   "name",               :limit => 100, :default => "", :null => false
@@ -43,36 +43,39 @@ ActiveRecord::Schema.define(:version => 20120128003212) do
   add_index "posts", ["user_id"], :name => "userid"
 
   create_table "topics", :force => true do |t|
-    t.string  "title",        :limit => 100, :default => "", :null => false
-    t.integer "forum_id",     :limit => 2,   :default => 0,  :null => false
-    t.integer "open",         :limit => 1,   :default => 0,  :null => false
-    t.integer "posts_count",                 :default => 0,  :null => false
-    t.integer "views",                       :default => 0,  :null => false
-    t.integer "visible",      :limit => 2,   :default => 0,  :null => false
-    t.integer "sticky",       :limit => 2,   :default => 0,  :null => false
-    t.integer "last_post_id"
-    t.integer "starter_id"
+    t.string   "title",        :limit => 100, :default => "", :null => false
+    t.integer  "forum_id",     :limit => 2,   :default => 0,  :null => false
+    t.integer  "open",         :limit => 1,   :default => 0,  :null => false
+    t.integer  "posts_count",                 :default => 0,  :null => false
+    t.integer  "views",                       :default => 0,  :null => false
+    t.integer  "visible",      :limit => 2,   :default => 0,  :null => false
+    t.integer  "sticky",       :limit => 2,   :default => 0,  :null => false
+    t.integer  "last_post_id"
+    t.integer  "starter_id"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"
   add_index "topics", ["forum_id", "visible", "sticky"], :name => "forumid"
 
   create_table "users", :force => true do |t|
-    t.string   "username",    :limit => 50,    :default => "",  :null => false
-    t.string   "password",    :limit => 50,    :default => "",  :null => false
-    t.string   "email",       :limit => 50,    :default => "",  :null => false
-    t.string   "homepage",    :limit => 100,   :default => ""
-    t.string   "icq",         :limit => 20,    :default => ""
-    t.string   "aim",         :limit => 20,    :default => ""
-    t.string   "yahoo",       :limit => 20,    :default => ""
-    t.string   "signature",   :limit => 10000, :default => ""
-    t.datetime "created_at",                                    :null => false
+    t.string   "username",     :limit => 50,    :default => "",  :null => false
+    t.string   "password",     :limit => 50,    :default => "",  :null => false
+    t.string   "email",        :limit => 50,    :default => "",  :null => false
+    t.string   "homepage",     :limit => 100,   :default => ""
+    t.string   "icq",          :limit => 20,    :default => ""
+    t.string   "aim",          :limit => 20,    :default => ""
+    t.string   "yahoo",        :limit => 20,    :default => ""
+    t.string   "signature",    :limit => 10000, :default => ""
+    t.datetime "created_at",                                     :null => false
     t.datetime "last_visit"
-    t.integer  "posts_count", :limit => 2,     :default => 0,   :null => false
+    t.integer  "posts_count",  :limit => 2,     :default => 0,   :null => false
     t.date     "birthday"
-    t.string   "gender",      :limit => 20,    :default => "0"
-    t.integer  "time_online",                  :default => 0,   :null => false
+    t.string   "gender",       :limit => 20,    :default => "0"
+    t.integer  "time_online",                   :default => 0,   :null => false
     t.datetime "updated_at"
+    t.integer  "last_post_id"
   end
 
   add_index "users", ["username"], :name => "username"
