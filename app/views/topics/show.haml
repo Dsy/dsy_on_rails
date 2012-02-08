@@ -30,5 +30,6 @@
 %ul
   = render @posts
 
+= link_to 'new post', new_post_path(topic_id: @topic.id)
+
 = link_to :back
-= url_for :back

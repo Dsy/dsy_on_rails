@@ -1,0 +1,4 @@
+-#=render 'form'
+
+=@topic.forum_id
+=render "posts/form", url: topic_path(forum_id: @topic.forum_id)
