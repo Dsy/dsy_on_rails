@@ -3,10 +3,11 @@
   = render :partial => "forum_data_header" if not @forum.children.active.empty?
   = render :partial => "forum_data", :collection => @forum.children.active.by_rank, :as => :forum
 
-  = render :partial => "topics_header" if @topics
+  = render :partial => "topics_header" if not @topics.empty?
   = render @topics
 
 -##paginator= paginate @threads, :remote => true
 #paginator= paginate @topics
 -#= link_to :back
 -#= url_for :back
+= link_to 'new topic', new_topic_path(forum_id: @forum.id)
