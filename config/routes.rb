@@ -1,8 +1,8 @@
 DsyOnRails::Application.routes.draw do
-  resources :forums
-  resources :topics
-  resources :posts
-  resources :users
+  resources :forums,  only: [:index, :show]
+  resources :topics,  only: [:new, :create, :show]
+  resources :posts, except: [:index]
+  resources :users, except: [:destroy]
 
   root :to => 'forums#index'
   #resources :users do
