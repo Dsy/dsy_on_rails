@@ -19,14 +19,13 @@ gem 'unicorn', :platforms => :ruby
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  # Pretty printed test output
-#  gem 'turn', :require => false
 #  gem 'capybara'
 #  gem 'cucumber'
 #  gem 'selenium-webdriver'
 #  gem 'spork'
 #  gem 'spork-testunit'
 #  gem 'rspec'
+  gem 'factory_girl_rails'
 end
 
 gem 'haml'
