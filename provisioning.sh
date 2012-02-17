@@ -19,4 +19,5 @@ if [[ ! -e  config/unicorn-vagrant.rb ]]; then
     cp config/unicorn.rb.dist config/unicorn-vagrant.rb
 fi
 /etc/rc.d/unicorn start
+
 echo "Visit http://localhost:3000 and have fun!"
