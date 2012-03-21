@@ -9,6 +9,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'jquery-rails'
   gem 'uglifier'
+  gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
 end
 
 
