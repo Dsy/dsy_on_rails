@@ -5,6 +5,7 @@ tmp/
 .sass-cache/
 *.swp
 config/unicorn.rb
+config/unicorn-vagrant.rb
 config/database.yml
 Capfile
 .vagrant

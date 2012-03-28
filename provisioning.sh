@@ -8,8 +8,8 @@ if [[ -e Gemfile ]]; then
     bundle install
 fi
 
-if [[ ! -e  config/unicorn.rb ]]; then
-    cp config/unicorn.rb.dist config/unicorn.rb
+if [[ ! -e  config/unicorn-vagrant.rb ]]; then
+    cp config/unicorn.rb.dist config/unicorn-vagrant.rb
 fi
 
 if [[ ! -e  config/database.yml ]]; then
