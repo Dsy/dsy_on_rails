@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(:version => 20120129123936) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "topic_id",                       :default => 0,  :null => false
-    t.integer  "user_id",                        :default => 0,  :null => false
-    t.string   "title",      :limit => 100,      :default => ""
-    t.datetime "created_at",                                     :null => false
-    t.text     "content",    :limit => 16777215,                 :null => false
-    t.integer  "visible",    :limit => 2,        :default => 0,  :null => false
+    t.integer  "topic_id",                         :default => 0,  :null => false
+    t.integer  "user_id",                          :default => 0,  :null => false
+    t.string   "title",      :limit => 100,        :default => ""
+    t.datetime "created_at",                                       :null => false
+    t.text     "content",    :limit => 2147483647,                 :null => false
+    t.integer  "visible",    :limit => 2,          :default => 0,  :null => false
     t.datetime "updated_at"
   end
 
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20120129123936) do
     t.integer  "sticky",       :limit => 2,   :default => 0,  :null => false
     t.integer  "last_post_id"
     t.integer  "starter_id"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "topics", ["forum_id", "open", "id"], :name => "forumid_open_threadid"
