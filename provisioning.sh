@@ -15,6 +15,8 @@ if [[ ! -e  config/database.yml ]]; then
     echo "Done."
 fi
 
+rake db:migrate
+
 if [[ ! -e  config/unicorn-vagrant.rb ]]; then
     cp config/unicorn.rb.dist config/unicorn-vagrant.rb
 fi
